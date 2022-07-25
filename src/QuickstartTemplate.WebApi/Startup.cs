@@ -1,5 +1,7 @@
-﻿using QuickstartTemplate.ApplicationCore;
+﻿using Microsoft.AspNetCore.HttpLogging;
+using QuickstartTemplate.ApplicationCore;
 using QuickstartTemplate.Infrastructure;
+using Serilog;
 
 namespace QuickstartTemplate.WebApi;
 
@@ -21,6 +23,20 @@ public class Startup
 
         services.AddInfrastructure();
         services.AddApplication();
+        
+        //https://josef.codes/asp-net-core-6-http-logging-log-requests-responses/
+        services.AddHttpLogging(options =>
+        {
+            //dont log Response if grpc is added it will break; track bug in below issue
+            //https://github.com/dotnet/aspnetcore/issues/39317
+
+            HttpLoggingFields httpLoggingFields;
+            //https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.httplogging.httploggingfields?view=aspnetcore-6.0
+            if (!Enum.TryParse(_configuration["HttpLoggingFields"],
+                    out httpLoggingFields))
+                httpLoggingFields = HttpLoggingFields.None;
+            options.LoggingFields = httpLoggingFields;
+        });
     }
 
     public void Configure(WebApplication app)
@@ -30,6 +46,12 @@ public class Startup
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        app.UseRouting();
+        
+        app.UseSerilogRequestLogging();
+        
+        //https://josef.codes/asp-net-core-6-http-logging-log-requests-responses/
+        app.UseHttpLogging();
         
         app.UseAuthorization();
 
