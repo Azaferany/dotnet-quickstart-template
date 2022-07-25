@@ -1,4 +1,7 @@
-﻿namespace QuickstartTemplate.WebApi;
+﻿using QuickstartTemplate.ApplicationCore;
+using QuickstartTemplate.Infrastructure;
+
+namespace QuickstartTemplate.WebApi;
 
 public class Startup
 {
@@ -15,6 +18,9 @@ public class Startup
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+
+        services.AddInfrastructure();
+        services.AddApplication();
     }
 
     public void Configure(WebApplication app)

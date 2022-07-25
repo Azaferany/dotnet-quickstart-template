@@ -1,18 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\QuickstartTemplate.ApplicationCore\QuickstartTemplate.ApplicationCore.csproj" />
-        <ProjectReference Include="..\QuickstartTemplate.Infrastructure\QuickstartTemplate.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
