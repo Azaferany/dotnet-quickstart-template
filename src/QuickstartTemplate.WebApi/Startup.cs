@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using QuickstartTemplate.ApplicationCore;
 using QuickstartTemplate.Infrastructure;
 using Serilog;
@@ -17,12 +19,27 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+
+        services.AddApiVersioning(o =>
+        {
+            o.AssumeDefaultVersionWhenUnspecified = false;
+            o.DefaultApiVersion = new ApiVersion(1, 0);
+            o.ReportApiVersions = true;
+            o.ApiVersionReader = new UrlSegmentApiVersionReader();
+        });
 
         services.AddInfrastructure();
         services.AddApplication();
+        
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        services.AddVersionedApiExplorer(options =>
+        {
+            options.GroupNameFormat = "'v'VVV";
+            options.SubstituteApiVersionInUrl = true;
+        });
+        
+        services.AddSwaggerGen();
+
         
         //https://josef.codes/asp-net-core-6-http-logging-log-requests-responses/
         services.AddHttpLogging(options =>
