@@ -1,9 +1,10 @@
 using QuickstartTemplate.WebApi;
 using Sentry;
 using Serilog;
-using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
+// NOTE: Default application configuration sources can be found at 
+// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0#default-application-configuration-sources
 
 builder.WebHost.UseSentry((builderContext, sentryOptions) =>
 {
@@ -11,21 +12,7 @@ builder.WebHost.UseSentry((builderContext, sentryOptions) =>
     sentryOptions.AddExceptionFilterForType<OperationCanceledException>();
 });
 
-builder.Host.UseSerilog((context, configuration) =>
-{
-    if (!Enum.TryParse(context.Configuration["LogEventLevel"], out LogEventLevel logEventLevel))
-        logEventLevel = LogEventLevel.Information;
-
-    configuration.Filter.ByExcluding(logEvent =>
-        logEvent.Exception != null && logEvent.Exception.GetType() == typeof(OperationCanceledException));
-
-    configuration.MinimumLevel.Is(logEventLevel);
-
-    configuration.Enrich.FromLogContext();
-
-    configuration.WriteTo.Console();
-    configuration.WriteTo.Sentry();
-});
+builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
 // Manually create an instance of the Startup class
 // https://andrewlock.net/exploring-dotnet-6-part-12-upgrading-a-dotnet-5-startup-based-app-to-dotnet-6/

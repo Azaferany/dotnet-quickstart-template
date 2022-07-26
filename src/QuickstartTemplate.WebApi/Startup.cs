@@ -46,21 +46,12 @@ public class Startup
         });
         
         services.AddSwaggerGen();
-
         
-        //https://josef.codes/asp-net-core-6-http-logging-log-requests-responses/
-        services.AddHttpLogging(options =>
-        {
-            //dont log Response if grpc is added it will break; track bug in below issue
-            //https://github.com/dotnet/aspnetcore/issues/39317
-
-            HttpLoggingFields httpLoggingFields;
-            //https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.httplogging.httploggingfields?view=aspnetcore-6.0
-            if (!Enum.TryParse(_configuration["HttpLoggingFields"],
-                    out httpLoggingFields))
-                httpLoggingFields = HttpLoggingFields.None;
-            options.LoggingFields = httpLoggingFields;
-        });
+        //for more information read
+        //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-logging/?view=aspnetcore-6.0
+        //dont log Response if grpc is added it will break; track bug in below issue
+        //https://github.com/dotnet/aspnetcore/issues/39317
+        services.AddHttpLogging(options => _configuration.Bind("HttpLogging", options));
     }
 
     public void Configure(WebApplication app)
