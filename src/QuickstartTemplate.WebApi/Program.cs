@@ -1,12 +1,15 @@
 using QuickstartTemplate.WebApi;
+using Sentry;
 using Serilog;
 using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Manually create an instance of the Startup class
-// https://andrewlock.net/exploring-dotnet-6-part-12-upgrading-a-dotnet-5-startup-based-app-to-dotnet-6/
-var startup = new Startup(builder.Configuration);
+builder.WebHost.UseSentry((builderContext, sentryOptions) =>
+{
+    sentryOptions.Dsn = builderContext.Configuration["SENTRY_DSN"];
+    sentryOptions.AddExceptionFilterForType<OperationCanceledException>();
+});
 
 builder.Host.UseSerilog((context, configuration) =>
 {
@@ -18,8 +21,15 @@ builder.Host.UseSerilog((context, configuration) =>
 
     configuration.MinimumLevel.Is(logEventLevel);
 
-    configuration.Enrich.FromLogContext().WriteTo.Console();
+    configuration.Enrich.FromLogContext();
+
+    configuration.WriteTo.Console();
+    configuration.WriteTo.Sentry();
 });
+
+// Manually create an instance of the Startup class
+// https://andrewlock.net/exploring-dotnet-6-part-12-upgrading-a-dotnet-5-startup-based-app-to-dotnet-6/
+var startup = new Startup(builder.Configuration);
 
 // Manually call ConfigureServices()
 startup.ConfigureServices(builder.Services);
