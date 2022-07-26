@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using QuickstartTemplate.ApplicationCore;
+using QuickstartTemplate.ApplicationCore.Resources;
 using QuickstartTemplate.Infrastructure;
 using Serilog;
 
@@ -18,7 +19,13 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllers();
+        services.AddLocalization();
+
+        services.AddControllers()
+            .AddDataAnnotationsLocalization(options => {
+                options.DataAnnotationLocalizerProvider = (type, factory) =>
+                    factory.Create(typeof(SharedResource));
+            });
 
         services.AddApiVersioning(o =>
         {
@@ -58,6 +65,9 @@ public class Startup
 
     public void Configure(WebApplication app)
     {
+        app.UseRequestLocalization(options =>
+            options.AddSupportedCultures("en-US", "fr-IR").SetDefaultCulture("en-US"));
+        
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
