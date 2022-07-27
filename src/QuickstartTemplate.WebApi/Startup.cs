@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using QuickstartTemplate.ApplicationCore;
 using QuickstartTemplate.ApplicationCore.Resources;
 using QuickstartTemplate.Infrastructure;
+using QuickstartTemplate.Infrastructure.DbContexts;
 using Serilog;
 using StackExchange.Redis;
 
@@ -185,6 +186,9 @@ public class Startup
         //dont log Response if grpc is added it will break; track bug in below issue
         //https://github.com/dotnet/aspnetcore/issues/39317
         services.AddHttpLogging(options => _configuration.Bind("HttpLogging", options));
+        
+        services.AddHealthChecks()
+            .AddDbContextCheck<ProjectDbContext>();
     }
 
     public void Configure(WebApplication app)
@@ -212,6 +216,8 @@ public class Startup
 
         app.UseAuthentication();
         app.UseAuthorization();
+        
+        app.MapHealthChecks("/v1/health-check");
 
         app.MapControllers();
     }
