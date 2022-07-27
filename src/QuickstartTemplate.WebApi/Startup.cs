@@ -84,7 +84,7 @@ public class Startup
                 policy => policy.RequireScope("QuickstartTemplate:write"));
         });
 
-        services.AddInfrastructure();
+        services.AddInfrastructure(_configuration);
         services.AddApplication();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
