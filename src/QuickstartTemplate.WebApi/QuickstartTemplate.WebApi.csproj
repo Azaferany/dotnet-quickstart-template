@@ -24,6 +24,10 @@
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" />
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.7" />
         <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.7" />
+        <PackageReference Include="prometheus-net.AspNetCore" Version="6.0.0" />
+        <PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="6.0.0" />
+        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="6.0.0" />
+        <PackageReference Include="prometheus-net.DotNetRuntime" Version="4.2.3" />
     </ItemGroup>
 
     <ItemGroup>

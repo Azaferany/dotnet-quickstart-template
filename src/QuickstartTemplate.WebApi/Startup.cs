@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.OpenApi.Models;
+using Prometheus;
+using Prometheus.DotNetRuntime;
 using QuickstartTemplate.ApplicationCore;
 using QuickstartTemplate.ApplicationCore.Resources;
 using QuickstartTemplate.Infrastructure;
@@ -187,6 +189,25 @@ public class Startup
         //https://github.com/dotnet/aspnetcore/issues/39317
         services.AddHttpLogging(options => _configuration.Bind("HttpLogging", options));
         
+        //https://github.com/prometheus-net/prometheus-net#eventcounter-integration
+        // Collect below metrics and more 
+        //https://www.npgsql.org/doc/diagnostics/metrics.html
+        //https://docs.microsoft.com/en-us/ef/core/logging-events-diagnostics/event-counters?tabs=windows
+        //https://docs.microsoft.com/en-us/dotnet/core/diagnostics/available-counters
+        var eventCounter = EventCounterAdapter.StartListening();
+
+        //https://github.com/prometheus-net/prometheus-net#net-6-meters-integration
+        var meter = MeterAdapter.StartListening();
+
+        var dotNetRuntimeStats = DotNetRuntimeStatsBuilder.Customize()
+            .WithThreadPoolStats()
+            .WithContentionStats()
+            .WithGcStats()
+            .WithJitStats()
+            .WithExceptionStats()
+            .WithErrorHandler(ex => Console.WriteLine("ERROR on per: " + ex))
+            .StartCollecting();
+        
         services.AddHealthChecks()
             .AddDbContextCheck<ProjectDbContext>();
     }
@@ -210,12 +231,22 @@ public class Startup
         app.UseRouting();
 
         app.UseSerilogRequestLogging();
+        
+        //HTTP request metrics
+        //https://github.com/prometheus-net/prometheus-net#aspnet-core-http-request-metrics
+        app.UseHttpMetrics();
+
+        //gRPC request metrics
+        //https://github.com/prometheus-net/prometheus-net#aspnet-core-grpc-request-metrics
+        app.UseGrpcMetrics();
 
         //https://josef.codes/asp-net-core-6-http-logging-log-requests-responses/
         app.UseHttpLogging();
 
         app.UseAuthentication();
         app.UseAuthorization();
+        
+        app.MapMetrics("/metrics");
         
         app.MapHealthChecks("/v1/health-check");
 
