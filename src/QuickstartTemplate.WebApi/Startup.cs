@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.HttpLogging;
+﻿using IdentityModel.AspNetCore.AccessTokenValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using QuickstartTemplate.ApplicationCore;
@@ -34,7 +34,41 @@ public class Startup
             o.ReportApiVersions = true;
             o.ApiVersionReader = new UrlSegmentApiVersionReader();
         });
+        
+        services.AddAuthentication("Bearer")
 
+            // JWT tokens (default scheme)
+            .AddJwtBearer("Bearer", options =>
+            {
+                _configuration.Bind("Authentication", options);
+
+                options.MapInboundClaims = false;
+                options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+                options.SaveToken = true;
+                // if token does not contain a dot, it is a reference token
+                options.ForwardDefaultSelector = Selector.ForwardReferenceToken("Introspection");
+            })
+
+            // reference tokens
+            .AddOAuth2Introspection("Introspection", options =>
+            {
+                _configuration.Bind("Authentication", options);
+
+                options.EnableCaching = true;
+            });
+
+        services.AddScopeTransformation();
+
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("admin",
+                policy => policy.RequireScope("QuickstartTemplate:admin"));
+            options.AddPolicy("read",
+                policy => policy.RequireScope("QuickstartTemplate:read"));
+            options.AddPolicy("write",
+                policy => policy.RequireScope("QuickstartTemplate:write"));
+        });
+        
         services.AddInfrastructure();
         services.AddApplication();
         
@@ -71,6 +105,7 @@ public class Startup
         //https://josef.codes/asp-net-core-6-http-logging-log-requests-responses/
         app.UseHttpLogging();
         
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();
