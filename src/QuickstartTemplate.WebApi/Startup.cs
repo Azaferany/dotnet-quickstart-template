@@ -6,6 +6,7 @@ using QuickstartTemplate.ApplicationCore;
 using QuickstartTemplate.ApplicationCore.Resources;
 using QuickstartTemplate.Infrastructure;
 using Serilog;
+using StackExchange.Redis;
 
 namespace QuickstartTemplate.WebApi;
 
@@ -14,9 +15,15 @@ public class Startup
     public Startup(IConfiguration configuration)
     {
         _configuration = configuration;
+
+        _connectionMultiplexer = !string.IsNullOrEmpty(_configuration.GetConnectionString("Redis"))
+            ? ConnectionMultiplexer.Connect(_configuration.GetConnectionString("Redis"))
+            : null;
     }
 
     private readonly IConfiguration _configuration;
+    
+    private readonly IConnectionMultiplexer? _connectionMultiplexer;
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -37,6 +44,12 @@ public class Startup
             o.ApiVersionReader = new UrlSegmentApiVersionReader();
         });
 
+        if(_connectionMultiplexer is null)
+            services.AddDistributedMemoryCache();
+        else
+            services.AddStackExchangeRedisCache(options =>
+                options.ConnectionMultiplexerFactory = async () => _connectionMultiplexer);
+        
         services.AddAuthentication("Bearer")
 
             // JWT tokens (default scheme)
