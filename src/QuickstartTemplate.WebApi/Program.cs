@@ -6,11 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // NOTE: Default application configuration sources can be found at 
 // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0#default-application-configuration-sources
 
-builder.WebHost.UseSentry((builderContext, sentryOptions) =>
-{
-    sentryOptions.Dsn = builderContext.Configuration["SENTRY_DSN"];
-    sentryOptions.AddExceptionFilterForType<OperationCanceledException>();
-});
+builder.WebHost.UseSentry(sentryOptions => sentryOptions.AddExceptionFilterForType<OperationCanceledException>());
 
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
