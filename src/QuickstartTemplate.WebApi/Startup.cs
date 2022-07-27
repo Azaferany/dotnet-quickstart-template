@@ -1,12 +1,14 @@
 ﻿using IdentityModel.AspNetCore.AccessTokenValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.Extensions.Http;
 using Microsoft.OpenApi.Models;
 using Prometheus;
 using Prometheus.DotNetRuntime;
 using QuickstartTemplate.ApplicationCore;
 using QuickstartTemplate.ApplicationCore.Resources;
 using QuickstartTemplate.Infrastructure;
+using QuickstartTemplate.Infrastructure.Common;
 using QuickstartTemplate.Infrastructure.DbContexts;
 using Serilog;
 using StackExchange.Redis;
@@ -95,6 +97,14 @@ public class Startup
             options.AddPolicy("write",
                 policy => policy.RequireScope("QuickstartTemplate:write"));
         });
+        
+        services.AddSingleton<IHttpMessageHandlerBuilderFilter, GlobalHttpMessageHandlerBuilderFilter>();
+        
+        // added handlers to this client will apply to all clients 
+        services.AddHttpClient(GlobalHttpMessageHandlerBuilderFilter.GlobalMessageHandlerConfigure)
+            //Collect metrics for all HttpClient instances created using IHttpClientFactory.
+            //https://github.com/prometheus-net/prometheus-net#ihttpclientfactory-metrics
+            .UseHttpClientMetrics();
 
         services.AddInfrastructure(_configuration);
         services.AddApplication();
