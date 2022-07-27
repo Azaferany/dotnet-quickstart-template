@@ -35,7 +35,16 @@ public class Startup
                 options.DataAnnotationLocalizerProvider = (type, factory) =>
                     factory.Create(typeof(SharedResource));
             });
-
+        
+        services.AddCors(crosOption => 
+        {
+            crosOption.AddDefaultPolicy(
+                builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetPreflightMaxAge(TimeSpan.FromMinutes(10)));
+        });
+        
         services.AddApiVersioning(o =>
         {
             o.AssumeDefaultVersionWhenUnspecified = false;
@@ -192,6 +201,7 @@ public class Startup
                 options.SwaggerEndpoint("/api-docs/v2/swagger.json", "v2");
             });
         }
+        app.UseCors();
 
         app.UseRouting();
 
