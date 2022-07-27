@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Http;
 using Microsoft.OpenApi.Models;
+using Npgsql;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using Prometheus;
 using Prometheus.DotNetRuntime;
 using QuickstartTemplate.ApplicationCore;
@@ -198,6 +201,27 @@ public class Startup
         //dont log Response if grpc is added it will break; track bug in below issue
         //https://github.com/dotnet/aspnetcore/issues/39317
         services.AddHttpLogging(options => _configuration.Bind("HttpLogging", options));
+        
+        services.AddOpenTelemetryTracing(builder =>
+        {
+            builder.AddSource(typeof(Startup).Assembly.FullName);
+            builder.AddSource(typeof(ApplicationCoreSetup).Assembly.FullName);
+            builder.AddSource(typeof(InfrastructureSetup).Assembly.FullName);
+            //environment set docs
+            //https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/docs/trace/extending-the-sdk/README.md#resource-detector
+            builder.SetResourceBuilder(ResourceBuilder.CreateDefault().AddEnvironmentVariableDetector());
+            //environment set docs
+            //https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Exporter.Jaeger/README.md#environment-variables
+            builder.AddJaegerExporter();
+            builder.AddAspNetCoreInstrumentation();
+            builder.AddElasticsearchClientInstrumentation();
+            builder.AddHttpClientInstrumentation();
+            builder.AddEntityFrameworkCoreInstrumentation(options => options.SetDbStatementForText = true);
+            builder.AddNpgsql();
+            
+            if(_connectionMultiplexer is not null) 
+                builder.AddRedisInstrumentation(_connectionMultiplexer, options => options.SetVerboseDatabaseStatements = true);
+        });
         
         //https://github.com/prometheus-net/prometheus-net#eventcounter-integration
         // Collect below metrics and more 
