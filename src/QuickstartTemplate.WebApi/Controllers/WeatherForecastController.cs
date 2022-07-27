@@ -1,11 +1,16 @@
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace QuickstartTemplate.WebApi.Controllers;
 
 [ApiController]
-[Route( "v{version:apiVersion}/[controller]" )]
-[ApiVersion( "1.0", Deprecated = true)]
-[ApiVersion( "2.0")]
+[Route("v{version:apiVersion}/[controller]")]
+[ApiVersion("1.0", Deprecated = true)]
+[ApiVersion("2.0")]
+[Produces("application/json")]
+[Consumes("application/json")]
+[ProducesResponseType(typeof(ValidationProblemDetails), (int)HttpStatusCode.BadRequest)]
+[ProducesResponseType((int)HttpStatusCode.OK)]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -21,7 +26,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public ActionResult<List<WeatherForecast>> Get()
     {
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -29,6 +34,6 @@ public class WeatherForecastController : ControllerBase
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
-            .ToArray();
+            .ToList();
     }
 }
