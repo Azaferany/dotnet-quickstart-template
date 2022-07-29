@@ -100,6 +100,8 @@ public class Startup
             options.AddPolicy("write",
                 policy => policy.RequireScope("QuickstartTemplate:write"));
         });
+
+        services.AddHttpContextAccessor();
         
         services.AddSingleton<IHttpMessageHandlerBuilderFilter, GlobalHttpMessageHandlerBuilderFilter>();
         

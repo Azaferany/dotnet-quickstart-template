@@ -45,9 +45,8 @@ public class ProjectDbContext : DbContext, IProjectDbContext
 
     private void SetEntitiesContracts(CancellationToken cancellationToken)
     {
-        var httpContextAccessor = this.GetService<IHttpContextAccessor>();
+        var httpContext = this.GetService<IHttpContextAccessor>().HttpContext;
         var dateTimeProvider = this.GetService<IDateTimeProvider>();
-        var httpContext = httpContextAccessor.HttpContext;
 
         foreach (var entry in ChangeTracker.Entries())
         {
