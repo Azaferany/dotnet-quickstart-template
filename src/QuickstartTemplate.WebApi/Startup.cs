@@ -14,6 +14,7 @@ using QuickstartTemplate.Infrastructure;
 using QuickstartTemplate.Infrastructure.Common;
 using QuickstartTemplate.Infrastructure.DbContexts;
 using Serilog;
+using Serilog.HttpClient;
 using StackExchange.Redis;
 
 namespace QuickstartTemplate.WebApi;
@@ -109,7 +110,8 @@ public class Startup
         services.AddHttpClient(GlobalHttpMessageHandlerBuilderFilter.GlobalMessageHandlerConfigure)
             //Collect metrics for all HttpClient instances created using IHttpClientFactory.
             //https://github.com/prometheus-net/prometheus-net#ihttpclientfactory-metrics
-            .UseHttpClientMetrics();
+            .UseHttpClientMetrics()
+            .LogRequestResponse(options => _configuration.Bind("LogRequestResponse", options));
 
         services.AddInfrastructure(_configuration);
         services.AddApplication();
