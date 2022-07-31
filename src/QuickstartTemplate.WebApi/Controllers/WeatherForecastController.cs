@@ -24,7 +24,11 @@ public class WeatherForecastController : ControllerBase
     {
         _logger = logger;
     }
-
+    
+    /// <summary>
+    /// Get Weather Forecast
+    /// </summary>
+    /// <returns></returns>
     [HttpGet(Name = "GetWeatherForecast")]
     public ActionResult<List<WeatherForecast>> Get()
     {
