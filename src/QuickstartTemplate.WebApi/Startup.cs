@@ -78,7 +78,7 @@ public class Startup
                 _configuration.Bind("Authentication", options);
 
                 options.MapInboundClaims = false;
-                options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+                options.TokenValidationParameters.NameClaimType = "sub";
                 options.SaveToken = true;
                 // if token does not contain a dot, it is a reference token
                 options.ForwardDefaultSelector = Selector.ForwardReferenceToken("Introspection");
@@ -89,6 +89,7 @@ public class Startup
             {
                 _configuration.Bind("Authentication", options);
 
+                options.NameClaimType = "sub";
                 options.EnableCaching = true;
             });
 

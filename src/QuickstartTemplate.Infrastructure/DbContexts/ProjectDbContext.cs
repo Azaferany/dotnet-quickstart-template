@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Internal;
-using QuickstartTemplate.ApplicationCore.Common;
 using QuickstartTemplate.ApplicationCore.Contracts;
 using QuickstartTemplate.ApplicationCore.Entities;
 
@@ -69,7 +68,7 @@ public class ProjectDbContext : DbContext, IProjectDbContext
                 {
                     if (httpContext?.User?.Identity?.IsAuthenticated == true)
                     {
-                        entry.CurrentValues[nameof(ITimeable.CreatedById)] = httpContext.User.UserId();
+                        entry.CurrentValues[nameof(ITimeable.CreatedById)] = httpContext.User.Identity.Name;
                     }
 
                     entry.CurrentValues[nameof(ITimeable.CreatedOn)] = dateTimeProvider.UtcNow;
@@ -78,7 +77,7 @@ public class ProjectDbContext : DbContext, IProjectDbContext
                 {
                     if (httpContext?.User?.Identity?.IsAuthenticated == true)
                     {
-                        entry.CurrentValues[nameof(ITimeable.ModifiedById)] = httpContext.User.UserId();
+                        entry.CurrentValues[nameof(ITimeable.ModifiedById)] = httpContext.User.Identity.Name;
                     }
 
                     entry.CurrentValues[nameof(ITimeable.ModifiedOn)] = dateTimeProvider.UtcNow;
