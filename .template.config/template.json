@@ -38,7 +38,10 @@
         "/.idea/" ,
         ".git/" ,
         "/.git/" ,
-        "logs/"
+        "logs/",
+        ".releaserc",
+        "*.md",
+        "templatepack.csproj"
       ]
     }
   ]
