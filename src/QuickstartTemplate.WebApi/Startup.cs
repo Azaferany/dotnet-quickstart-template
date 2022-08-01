@@ -3,6 +3,7 @@ using IdentityModel.AspNetCore.AccessTokenValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Internal;
 using Microsoft.OpenApi.Models;
 using Npgsql;
 using OpenTelemetry.Resources;
@@ -104,6 +105,7 @@ public class Startup
         });
 
         services.AddHttpContextAccessor();
+        services.AddSingleton<ISystemClock, SystemClock>();
         
         services.AddSingleton<IHttpMessageHandlerBuilderFilter, GlobalHttpMessageHandlerBuilderFilter>();
         

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Internal;
 using QuickstartTemplate.ApplicationCore.Common;
 using QuickstartTemplate.ApplicationCore.Contracts;
 using QuickstartTemplate.ApplicationCore.Entities;
@@ -46,7 +47,7 @@ public class ProjectDbContext : DbContext, IProjectDbContext
     private void SetEntitiesContracts(CancellationToken cancellationToken)
     {
         var httpContext = this.GetService<IHttpContextAccessor>().HttpContext;
-        var dateTimeProvider = this.GetService<IDateTimeProvider>();
+        var dateTimeProvider = this.GetService<ISystemClock>();
 
         foreach (var entry in ChangeTracker.Entries())
         {
@@ -58,7 +59,7 @@ public class ProjectDbContext : DbContext, IProjectDbContext
                 {
                     entry.State = EntityState.Modified;
                     entry.CurrentValues[nameof(ISoftDeletable.IsDeleted)] = true;
-                    entry.CurrentValues[nameof(ISoftDeletable.DeletedOn)] = dateTimeProvider.GetNow();
+                    entry.CurrentValues[nameof(ISoftDeletable.DeletedOn)] = dateTimeProvider.UtcNow;
                 }
             }
 
@@ -71,7 +72,7 @@ public class ProjectDbContext : DbContext, IProjectDbContext
                         entry.CurrentValues[nameof(ITimeable.CreatedById)] = httpContext.User.UserId();
                     }
 
-                    entry.CurrentValues[nameof(ITimeable.CreatedOn)] = dateTimeProvider.GetNow();
+                    entry.CurrentValues[nameof(ITimeable.CreatedOn)] = dateTimeProvider.UtcNow;
                 }
                 else if (httpContext != null && httpContext.User != null && entry.State == EntityState.Modified)
                 {
@@ -80,7 +81,7 @@ public class ProjectDbContext : DbContext, IProjectDbContext
                         entry.CurrentValues[nameof(ITimeable.ModifiedById)] = httpContext.User.UserId();
                     }
 
-                    entry.CurrentValues[nameof(ITimeable.ModifiedOn)] = dateTimeProvider.GetNow();
+                    entry.CurrentValues[nameof(ITimeable.ModifiedOn)] = dateTimeProvider.UtcNow;
                 }
             }
         }
