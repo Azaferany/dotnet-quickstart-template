@@ -71,14 +71,13 @@ public class Startup
                 options.ConnectionMultiplexerFactory = async () => _connectionMultiplexer);
         
         services.AddAuthentication("Bearer")
-
             // JWT tokens (default scheme)
             .AddJwtBearer("Bearer", options =>
             {
-                _configuration.Bind("Authentication", options);
-
+                options.Audience = _configuration["Authentication:Authority"];
+                options.Authority = _configuration["Authentication:ApiName"];
                 options.MapInboundClaims = false;
-                options.TokenValidationParameters.NameClaimType = "sub";
+                options.TokenValidationParameters.NameClaimType = "sub"; // user id accessible by HttpContext.User.Identity.Name
                 options.SaveToken = true;
                 // if token does not contain a dot, it is a reference token
                 options.ForwardDefaultSelector = Selector.ForwardReferenceToken("Introspection");
@@ -87,9 +86,10 @@ public class Startup
             // reference tokens
             .AddOAuth2Introspection("Introspection", options =>
             {
-                _configuration.Bind("Authentication", options);
-
-                options.NameClaimType = "sub";
+                options.Authority = _configuration["Authentication:Authority"];
+                options.ClientId = _configuration["Authentication:ApiName"];
+                options.ClientSecret = _configuration["Authentication:ApiSecret"];
+                options.NameClaimType = "sub"; // user id accessible by HttpContext.User.Identity.Name
                 options.EnableCaching = true;
             });
 
