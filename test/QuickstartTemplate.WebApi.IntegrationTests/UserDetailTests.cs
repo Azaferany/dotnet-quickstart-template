@@ -7,13 +7,13 @@ using QuickstartTemplate.WebApi.IntegrationTests.Helpers;
 
 namespace QuickstartTemplate.WebApi.IntegrationTests;
 
-public class UserDetailTests : IClassFixture<CustomWebApplicationFactory>
+public class UserDetailTests
 {
     private readonly CustomWebApplicationFactory _customWebApplicationFactory;
 
-    public UserDetailTests(CustomWebApplicationFactory customWebApplicationFactory)
+    public UserDetailTests()
     {
-        _customWebApplicationFactory = customWebApplicationFactory;
+        _customWebApplicationFactory = new CustomWebApplicationFactory();
     }
 
     [Fact]
@@ -37,7 +37,6 @@ public class UserDetailTests : IClassFixture<CustomWebApplicationFactory>
         var readFromString = await response.Content.ReadFromJsonAsync<string>();
 
         readFromString.Should().BeEquivalentTo(userId);
-
     }
 
     // some mocking like MockJwtTokens needed but i have no idea how do do that.
