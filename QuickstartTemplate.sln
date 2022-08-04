@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickstartTemplate.Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickstartTemplate.Infrastructure", "src\QuickstartTemplate.Infrastructure\QuickstartTemplate.Infrastructure.csproj", "{5F08C317-AE7C-4727-A723-C928167390A4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{834D4298-D511-484F-A8E3-3CC217A50A1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickstartTemplate.WebApi.IntegrationTests", "test\QuickstartTemplate.WebApi.IntegrationTests\QuickstartTemplate.WebApi.IntegrationTests.csproj", "{4F430C8F-4EDC-46A0-91E7-8D2235F42891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,7 @@ Global
 		{64344D28-7E5C-40D5-ACA3-4D87730E47E4} = {C7163AD7-4514-4566-9EAA-E55EA8186559}
 		{3AC2AE02-F4C3-49C5-AD18-019517D60E70} = {C7163AD7-4514-4566-9EAA-E55EA8186559}
 		{5F08C317-AE7C-4727-A723-C928167390A4} = {C7163AD7-4514-4566-9EAA-E55EA8186559}
+		{4F430C8F-4EDC-46A0-91E7-8D2235F42891} = {834D4298-D511-484F-A8E3-3CC217A50A1A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{64344D28-7E5C-40D5-ACA3-4D87730E47E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -31,5 +36,9 @@ Global
 		{5F08C317-AE7C-4727-A723-C928167390A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F08C317-AE7C-4727-A723-C928167390A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F08C317-AE7C-4727-A723-C928167390A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F430C8F-4EDC-46A0-91E7-8D2235F42891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F430C8F-4EDC-46A0-91E7-8D2235F42891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F430C8F-4EDC-46A0-91E7-8D2235F42891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F430C8F-4EDC-46A0-91E7-8D2235F42891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

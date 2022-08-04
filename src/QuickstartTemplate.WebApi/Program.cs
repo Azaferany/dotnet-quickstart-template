@@ -23,3 +23,9 @@ var app = builder.Build();
 startup.Configure(app);
 
 app.Run();
+
+
+#pragma warning disable CA1050 // Declare types in namespaces
+// ReSharper disable once ClassNeverInstantiated.Global
+public partial class Program { } //needed for WebApplicationFactory on IntegrationTests
+#pragma warning restore CA1050 // Declare types in namespaces
