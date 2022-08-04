@@ -10,7 +10,7 @@ namespace QuickstartTemplate.Infrastructure.DbContexts;
 
 public class ProjectDbContext : DbContext, IProjectDbContext
 {
-    public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
+    public ProjectDbContext(DbContextOptions options) : base(options)
     {
     }
 
