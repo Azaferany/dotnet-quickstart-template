@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using QuickstartTemplate.ApplicationCore.Contracts;
 using QuickstartTemplate.Infrastructure.DbContexts;
+using QuickstartTemplate.WebApi.IntegrationTests.Helpers;
 
 namespace QuickstartTemplate.WebApi.IntegrationTests;
 
@@ -59,7 +62,18 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             db.Database.EnsureCreated();
 
             #endregion
+            
+            services.Configure<JwtBearerOptions>("Bearer", options =>
+            {
+                var config = new OpenIdConnectConfiguration()
+                {
+                    Issuer = MockJwtTokens.Issuer,
+                };
 
+                config.SigningKeys.Add(MockJwtTokens.SecurityKey);
+                options.Configuration = config;
+                options.Audience = MockJwtTokens.Audience;
+            });
         });
         
         builder.ConfigureAppConfiguration(configurationBuilder =>
