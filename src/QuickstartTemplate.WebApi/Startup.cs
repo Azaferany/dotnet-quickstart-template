@@ -235,6 +235,16 @@ public class Startup
             if(_connectionMultiplexer is not null) 
                 builder.AddRedisInstrumentation(_connectionMultiplexer, options => options.SetVerboseDatabaseStatements = true);
         });
+
+#if !DEBUG //https://github.com/djluck/prometheus-net.DotNetRuntime/issues/34
+        var dotNetRuntimeStats = DotNetRuntimeStatsBuilder.Customize()
+            .WithThreadPoolStats()
+            .WithContentionStats()
+            .WithGcStats()
+            .WithJitStats()
+            .WithExceptionStats()
+            .WithErrorHandler(ex => Console.WriteLine("ERROR on per: " + ex))
+            .StartCollecting();
         
         //https://github.com/prometheus-net/prometheus-net#eventcounter-integration
         // Collect below metrics and more 
@@ -245,16 +255,8 @@ public class Startup
 
         //https://github.com/prometheus-net/prometheus-net#net-6-meters-integration
         var meter = MeterAdapter.StartListening();
+#endif
 
-        var dotNetRuntimeStats = DotNetRuntimeStatsBuilder.Customize()
-            .WithThreadPoolStats()
-            .WithContentionStats()
-            .WithGcStats()
-            .WithJitStats()
-            .WithExceptionStats()
-            .WithErrorHandler(ex => Console.WriteLine("ERROR on per: " + ex))
-            .StartCollecting();
-        
         services.AddHealthChecks()
             .AddDbContextCheck<ProjectDbContext>();
     }

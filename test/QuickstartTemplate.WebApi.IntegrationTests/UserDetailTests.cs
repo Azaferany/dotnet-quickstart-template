@@ -7,13 +7,13 @@ using QuickstartTemplate.WebApi.IntegrationTests.Helpers;
 
 namespace QuickstartTemplate.WebApi.IntegrationTests;
 
-public class UserDetailTests
+public class UserDetailTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly CustomWebApplicationFactory _customWebApplicationFactory;
 
-    public UserDetailTests()
+    public UserDetailTests(CustomWebApplicationFactory customWebApplicationFactory)
     {
-        _customWebApplicationFactory = new CustomWebApplicationFactory();
+        _customWebApplicationFactory = customWebApplicationFactory;
     }
 
     [Fact]
