@@ -24,7 +24,7 @@ public class WeatherForecastController : ControllerBase
     {
         _logger = logger;
     }
-    
+
     /// <summary>
     /// Get Weather Forecast
     /// </summary>
@@ -33,11 +33,11 @@ public class WeatherForecastController : ControllerBase
     public ActionResult<List<WeatherForecast>> Get()
     {
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
+        {
+            Date = DateTime.Now.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+        })
             .ToList();
     }
 }

@@ -33,7 +33,7 @@ public class Startup
     }
 
     private readonly IConfiguration _configuration;
-    
+
     private readonly IConnectionMultiplexer? _connectionMultiplexer;
 
     public void ConfigureServices(IServiceCollection services)
@@ -46,8 +46,8 @@ public class Startup
                 options.DataAnnotationLocalizerProvider = (type, factory) =>
                     factory.Create(typeof(SharedResource));
             });
-        
-        services.AddCors(crosOption => 
+
+        services.AddCors(crosOption =>
         {
             crosOption.AddDefaultPolicy(
                 builder => builder.AllowAnyOrigin()
@@ -55,7 +55,7 @@ public class Startup
                     .AllowAnyHeader()
                     .SetPreflightMaxAge(TimeSpan.FromMinutes(10)));
         });
-        
+
         services.AddApiVersioning(o =>
         {
             o.AssumeDefaultVersionWhenUnspecified = false;
@@ -64,12 +64,12 @@ public class Startup
             o.ApiVersionReader = new UrlSegmentApiVersionReader();
         });
 
-        if(_connectionMultiplexer is null)
+        if (_connectionMultiplexer is null)
             services.AddDistributedMemoryCache();
         else
             services.AddStackExchangeRedisCache(options =>
                 options.ConnectionMultiplexerFactory = async () => _connectionMultiplexer);
-        
+
         services.AddAuthentication("Bearer")
             // JWT tokens (default scheme)
             .AddJwtBearer("Bearer", options =>
@@ -107,9 +107,9 @@ public class Startup
 
         services.AddHttpContextAccessor();
         services.AddSingleton<ISystemClock, SystemClock>();
-        
+
         services.AddSingleton<IHttpMessageHandlerBuilderFilter, GlobalHttpMessageHandlerBuilderFilter>();
-        
+
         // added handlers to this client will apply to all clients 
         services.AddHttpClient(GlobalHttpMessageHandlerBuilderFilter.GlobalMessageHandlerConfigure)
             //Collect metrics for all HttpClient instances created using IHttpClientFactory.
@@ -214,7 +214,7 @@ public class Startup
         //dont log Response if grpc is added it will break; track bug in below issue
         //https://github.com/dotnet/aspnetcore/issues/39317
         services.AddHttpLogging(options => _configuration.Bind("HttpLogging", options));
-        
+
         services.AddOpenTelemetryTracing(builder =>
         {
             builder.AddSource(typeof(Startup).Assembly.FullName);
@@ -231,8 +231,8 @@ public class Startup
             builder.AddHttpClientInstrumentation();
             builder.AddEntityFrameworkCoreInstrumentation(options => options.SetDbStatementForText = true);
             builder.AddNpgsql();
-            
-            if(_connectionMultiplexer is not null) 
+
+            if (_connectionMultiplexer is not null)
                 builder.AddRedisInstrumentation(_connectionMultiplexer, options => options.SetVerboseDatabaseStatements = true);
         });
 
@@ -280,7 +280,7 @@ public class Startup
         app.UseRouting();
 
         app.UseSerilogRequestLogging();
-        
+
         //HTTP request metrics
         //https://github.com/prometheus-net/prometheus-net#aspnet-core-http-request-metrics
         app.UseHttpMetrics();
@@ -294,9 +294,9 @@ public class Startup
 
         app.UseAuthentication();
         app.UseAuthorization();
-        
+
         app.MapMetrics("/metrics");
-        
+
         app.MapHealthChecks("/v1/health-check");
 
         app.MapControllers();

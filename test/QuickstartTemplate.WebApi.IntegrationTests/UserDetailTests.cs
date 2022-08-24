@@ -30,7 +30,7 @@ public class UserDetailTests : IClassFixture<CustomWebApplicationFactory>
 
         var userId = "64624";
         request.SetBearerToken(MockJwtTokens.GenerateJwtToken(new[] { new Claim("sub", userId) }));
-        
+
         var response = await client.SendAsync(request);
         response.EnsureSuccessStatusCode();
 

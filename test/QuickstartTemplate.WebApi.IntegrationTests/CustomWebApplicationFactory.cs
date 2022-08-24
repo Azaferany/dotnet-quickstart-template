@@ -30,15 +30,15 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 options.UseNpgsql("test npgsql");
                 options.UseInternalServiceProvider(provider);
             });
-            
+
             foreach (var service in dummyServices)
             {
-                if(service.ServiceType == typeof(ILoggerFactory))
+                if (service.ServiceType == typeof(ILoggerFactory))
                     continue;
-                
+
                 services.RemoveAll(service.ServiceType);
             }
-            
+
             var descriptor = services.SingleOrDefault(
                 d => d.ServiceType ==
                      typeof(DbContextOptions<ProjectDbContext>));
@@ -46,13 +46,13 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             services.Remove(descriptor);
 
             services.AddEntityFrameworkInMemoryDatabase();
-            
+
             services.AddDbContextPool<IProjectDbContext, ProjectDbContext>((provider, options) =>
             {
                 options.UseInMemoryDatabase("InMemoryDbForTesting");
                 options.UseInternalServiceProvider(provider);
             });
-            
+
             var sp = services.BuildServiceProvider();
 
             using var scope = sp.CreateScope();
@@ -62,7 +62,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             db.Database.EnsureCreated();
 
             #endregion
-            
+
             services.Configure<JwtBearerOptions>("Bearer", options =>
             {
                 var config = new OpenIdConnectConfiguration()
@@ -75,7 +75,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 options.Audience = MockJwtTokens.Audience;
             });
         });
-        
+
         builder.ConfigureAppConfiguration(configurationBuilder =>
             configurationBuilder.AddJsonFile(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.Test.json")));
     }
