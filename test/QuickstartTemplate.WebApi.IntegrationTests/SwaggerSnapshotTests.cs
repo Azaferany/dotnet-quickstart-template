@@ -18,7 +18,7 @@ public class SwaggerSnapshotTests : IClassFixture<CustomWebApplicationFactory>
 
         await Verify(v1SwaggerJson.Content.ReadAsStringAsync());
     }
-    
+
     [Fact]
     public async Task Verify_v2_swagger_json_snapshot()
     {

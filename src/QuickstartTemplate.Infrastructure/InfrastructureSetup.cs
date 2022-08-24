@@ -17,7 +17,7 @@ public static class InfrastructureSetup
             optionsBuilder.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"));
             optionsBuilder.UseInternalServiceProvider(serviceProvider);
-            
+
             // Second level caching
             // optionsBuilder.AddInterceptors(serviceProvider.GetRequiredService<SecondLevelCacheInterceptor>());
         });
@@ -27,7 +27,7 @@ public static class InfrastructureSetup
         // https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor
         // services.AddEFSecondLevelCache(options =>
         //     options.UseMemoryCacheProvider().DisableLogging(true).UseCacheKeyPrefix("EF_"));
-        
+
         return services;
     }
 }
