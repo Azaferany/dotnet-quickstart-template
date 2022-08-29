@@ -11,7 +11,7 @@ template with all essential tools and configs for basic dotnet api
 
 * add api versioning ([ef3529b](https://github.com/Azaferany/dotnet-quickstart-template/commit/ef3529b016681b50b7e1493c30eb2e1d864b206c))
 * add Cors ([46aa976](https://github.com/Azaferany/dotnet-quickstart-template/commit/46aa976f2341acc99225785627bc1c60edb2a127))
-* add distributed cache ([5e05da7](https://github.com/Azaferany/dotnet-quickstart-template/commit/5e05da771bb4f42ce4fa85ad4affe0f264e0d22c))* add SystemClock ([63c9b86](https://github.com/Azaferany/dotnet-quickstart-template/commit/63c9b869bc4a73ed2bfaef0b062c9fd07c161940))
+* add distributed cache ([5e05da7](https://github.com/Azaferany/dotnet-quickstart-template/commit/5e05da771bb4f42ce4fa85ad4affe0f264e0d22c))
 * add SystemClock ([63c9b86](https://github.com/Azaferany/dotnet-quickstart-template/commit/63c9b869bc4a73ed2bfaef0b062c9fd07c161940))
 * add ef DbContext with ISoftDeletable & ITimeable ([41b61b3](https://github.com/Azaferany/dotnet-quickstart-template/commit/41b61b3b1beef0a2e9b5db5e8d6a7a40cd91c20d))
 * add health checks ([5043179](https://github.com/Azaferany/dotnet-quickstart-template/commit/5043179e7f56347e87af69b9ea0856dca0ee5e57))
