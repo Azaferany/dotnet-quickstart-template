@@ -13,7 +13,7 @@ jobs:
         env:
           DOTNET_INSTALL_DIR: /usr/share/dotnet
       - name: Create the package
-        run: dotnet test QuickstartTemplate.sln -c Release && dotnet pack templatepack.csproj --no-build -c Release --output nupkgs
+        run: dotnet test QuickstartTemplate.sln && dotnet pack templatepack.csproj -c Release --output nupkgs
       - name: Publish the package to NuGet.org
         env:
           NUGET_KEY: ${{secrets.NUGET_KEY}}
