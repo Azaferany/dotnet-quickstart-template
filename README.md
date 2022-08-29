@@ -1,6 +1,12 @@
 # dotnet-quickstart-template
 template with all essential tools and configs for basic dotnet api
 
+## Usage : for use this template run below  commands
+
+1. `dotnet new --install QuickstartTemplate`
+
+2. `dotnet new quickstart -n {project name}`
+
 ### Features
 
 * add api versioning ([ef3529b](https://github.com/Azaferany/dotnet-quickstart-template/commit/ef3529b016681b50b7e1493c30eb2e1d864b206c))
