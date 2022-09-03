@@ -1,3 +1,33 @@
+## [1.0.2](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.1...v1.0.2) (2022-09-03)
+
+
+### Bug Fixes
+
+* fix Authority miss placement ([892f3cf](https://github.com/Azaferany/dotnet-quickstart-template/commit/892f3cf25bf32f86d69abbcc241b7365919f6e87))
+
+
+### Performance Improvements
+
+* **deps:** bump coverlet.collector from 3.1.0 to 3.1.2 ([#8](https://github.com/Azaferany/dotnet-quickstart-template/issues/8)) ([61497a9](https://github.com/Azaferany/dotnet-quickstart-template/commit/61497a95dbfec6447f4b3d89e16711529b4da02d))
+* **deps:** bump Microsoft.AspNetCore.Authentication.JwtBearer ([#16](https://github.com/Azaferany/dotnet-quickstart-template/issues/16)) ([168b2c7](https://github.com/Azaferany/dotnet-quickstart-template/commit/168b2c7951a7a197123a222ba1432d56b4e767b4))
+* **deps:** bump Microsoft.AspNetCore.Mvc.Testing from 6.0.7 to 6.0.8 ([#20](https://github.com/Azaferany/dotnet-quickstart-template/issues/20)) ([7669c6a](https://github.com/Azaferany/dotnet-quickstart-template/commit/7669c6a6c4fd90d66c355580a720a8b200ab2a0a))
+* **deps:** bump Microsoft.EntityFrameworkCore.Design ([#17](https://github.com/Azaferany/dotnet-quickstart-template/issues/17)) ([b9709cc](https://github.com/Azaferany/dotnet-quickstart-template/commit/b9709cc878d1742d1b5fe917c938e5f6d16bbc12))
+* **deps:** bump Microsoft.EntityFrameworkCore.InMemory ([#6](https://github.com/Azaferany/dotnet-quickstart-template/issues/6)) ([87debd9](https://github.com/Azaferany/dotnet-quickstart-template/commit/87debd9d7296db3778421f44e82543ed62aa5a40))
+* **deps:** bump Microsoft.Extensions.Caching.StackExchangeRedis ([#21](https://github.com/Azaferany/dotnet-quickstart-template/issues/21)) ([4b82e99](https://github.com/Azaferany/dotnet-quickstart-template/commit/4b82e99f52ab6460cfe020be1fd64900f104e480))
+* **deps:** bump Microsoft.Extensions.Diagnostics.HealthChecks ([#18](https://github.com/Azaferany/dotnet-quickstart-template/issues/18)) ([9d13215](https://github.com/Azaferany/dotnet-quickstart-template/commit/9d1321555356b2d02c9960fdaa8724e1d2cdcbe1))
+* **deps:** bump Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore ([#15](https://github.com/Azaferany/dotnet-quickstart-template/issues/15)) ([aeff1df](https://github.com/Azaferany/dotnet-quickstart-template/commit/aeff1df585ac6ce6510f961879d945c3c7f77d9d))
+* **deps:** bump Microsoft.Extensions.Localization from 6.0.7 to 6.0.8 ([#7](https://github.com/Azaferany/dotnet-quickstart-template/issues/7)) ([96f76fd](https://github.com/Azaferany/dotnet-quickstart-template/commit/96f76fda2b46a16caf9149d106c6ff6e7ed4b78c))
+* **deps:** bump Microsoft.Extensions.Localization.Abstractions ([#14](https://github.com/Azaferany/dotnet-quickstart-template/issues/14)) ([c1cf9e6](https://github.com/Azaferany/dotnet-quickstart-template/commit/c1cf9e6ee848b36e728df92a4c567ab1f3d4c0e0))
+* **deps:** bump Microsoft.NET.Test.Sdk from 16.11.0 to 17.3.1 ([#25](https://github.com/Azaferany/dotnet-quickstart-template/issues/25)) ([9272628](https://github.com/Azaferany/dotnet-quickstart-template/commit/92726285479917611401787089fae7ab27a93578))
+* **deps:** bump Npgsql.EntityFrameworkCore.PostgreSQL ([#24](https://github.com/Azaferany/dotnet-quickstart-template/issues/24)) ([efecd74](https://github.com/Azaferany/dotnet-quickstart-template/commit/efecd74b45d4c5c5edce9902d7d956c2d34655c8))
+* **deps:** bump prometheus-net.DotNetRuntime from 4.2.3 to 4.2.4 ([#27](https://github.com/Azaferany/dotnet-quickstart-template/issues/27)) ([00b9a32](https://github.com/Azaferany/dotnet-quickstart-template/commit/00b9a325648cfa227539291b4cede740696f9d96))
+* **deps:** bump Sentry.AspNetCore from 3.20.0 to 3.21.0 ([#23](https://github.com/Azaferany/dotnet-quickstart-template/issues/23)) ([9199f8d](https://github.com/Azaferany/dotnet-quickstart-template/commit/9199f8df56c14f1771a770f21a44a7caf10af3ee))
+* **deps:** bump Sentry.Serilog from 3.20.0 to 3.21.0 ([#22](https://github.com/Azaferany/dotnet-quickstart-template/issues/22)) ([f8a12e1](https://github.com/Azaferany/dotnet-quickstart-template/commit/f8a12e1360885a9981a8ca173c7b3708a7735969))
+* **deps:** bump Serilog.HttpClient from 1.0.0 to 2.0.0 ([#13](https://github.com/Azaferany/dotnet-quickstart-template/issues/13)) ([b4d04c4](https://github.com/Azaferany/dotnet-quickstart-template/commit/b4d04c4649d8f32e52f00ea1670593922c0c354c))
+* **deps:** bump Verify.Xunit from 17.5.0 to 17.10.2 ([#26](https://github.com/Azaferany/dotnet-quickstart-template/issues/26)) ([3789b21](https://github.com/Azaferany/dotnet-quickstart-template/commit/3789b21373e52c473f210550e92696ff9d730853))
+* **deps:** bump xunit from 2.4.1 to 2.4.2 ([#5](https://github.com/Azaferany/dotnet-quickstart-template/issues/5)) ([9f39c1a](https://github.com/Azaferany/dotnet-quickstart-template/commit/9f39c1ac9d7a0d8f8771bda0d96bbc7c04170a02))
+* **deps:** bump xunit.runner.visualstudio from 2.4.3 to 2.4.5 ([#10](https://github.com/Azaferany/dotnet-quickstart-template/issues/10)) ([f29d54f](https://github.com/Azaferany/dotnet-quickstart-template/commit/f29d54f9ce6765f11996a1172cad8584a1f64090))
+
 ## [1.0.1](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.0...v1.0.1) (2022-09-03)
 
 
