@@ -16,7 +16,7 @@ using QuickstartTemplate.Infrastructure;
 using QuickstartTemplate.Infrastructure.Common;
 using QuickstartTemplate.Infrastructure.DbContexts;
 using Serilog;
-using Serilog.HttpClient;
+using Serilog.HttpClient.Extensions;
 using StackExchange.Redis;
 
 namespace QuickstartTemplate.WebApi;
@@ -110,7 +110,7 @@ public class Startup
 
         services.AddSingleton<IHttpMessageHandlerBuilderFilter, GlobalHttpMessageHandlerBuilderFilter>();
 
-        // added handlers to this client will apply to all clients 
+        // added handlers to this client will apply to all clients
         services.AddHttpClient(GlobalHttpMessageHandlerBuilderFilter.GlobalMessageHandlerConfigure)
             //Collect metrics for all HttpClient instances created using IHttpClientFactory.
             //https://github.com/prometheus-net/prometheus-net#ihttpclientfactory-metrics
@@ -245,9 +245,9 @@ public class Startup
             .WithExceptionStats()
             .WithErrorHandler(ex => Console.WriteLine("ERROR on per: " + ex))
             .StartCollecting();
-        
+
         //https://github.com/prometheus-net/prometheus-net#eventcounter-integration
-        // Collect below metrics and more 
+        // Collect below metrics and more
         //https://www.npgsql.org/doc/diagnostics/metrics.html
         //https://docs.microsoft.com/en-us/ef/core/logging-events-diagnostics/event-counters?tabs=windows
         //https://docs.microsoft.com/en-us/dotnet/core/diagnostics/available-counters
