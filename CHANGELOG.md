@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.0...v1.0.1) (2022-09-03)
+
+
+### Performance Improvements
+
+* add user detail tests on OAuth2Introspection sub claim ([18c62ce](https://github.com/Azaferany/dotnet-quickstart-template/commit/18c62cebb5d27cc16c9338119f45777060f36c60))
+
 ## 1.0.0 (2022-08-29)
 
 
