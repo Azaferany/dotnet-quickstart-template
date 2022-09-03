@@ -74,11 +74,12 @@ public class Startup
             // JWT tokens (default scheme)
             .AddJwtBearer("Bearer", options =>
             {
-                options.Audience = _configuration["Authentication:Authority"];
-                options.Authority = _configuration["Authentication:ApiName"];
+                options.Authority = _configuration["Authentication:Authority"];
+                options.Audience = _configuration["Authentication:ApiName"];
                 options.MapInboundClaims = false;
                 options.TokenValidationParameters.NameClaimType = "sub"; // user id accessible by HttpContext.User.Identity.Name
                 options.SaveToken = true;
+                options.RequireHttpsMetadata = true;
                 // if token does not contain a dot, it is a reference token
                 options.ForwardDefaultSelector = Selector.ForwardReferenceToken("Introspection");
             })
