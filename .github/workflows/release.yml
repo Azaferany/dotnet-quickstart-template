@@ -15,8 +15,8 @@ jobs:
       - name: build and test
         run: |
           dotnet restore QuickstartTemplate.sln
-          dotnet build QuickstartTemplate.sln -c Release --no-restore
-          dotnet test QuickstartTemplate.sln -c Release --no-build
+          dotnet build QuickstartTemplate.sln --no-restore
+          dotnet test QuickstartTemplate.sln --no-build
       - name: setup semantic-release
         run: |
           npm install -D semantic-release
