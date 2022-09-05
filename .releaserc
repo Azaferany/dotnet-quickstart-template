@@ -1,19 +1,40 @@
 {
-  "branches": ["main"],
-  "plugins": [
-    ["@semantic-release/commit-analyzer", {
-      "preset": "conventionalcommits"
-    }],
-    ["@semantic-release/release-notes-generator", {
-      "preset": "conventionalcommits"
-    }],"@semantic-release/github",
-    "@semantic-release/changelog",
-    ["semantic-release-dotnet", {
-        "paths": ["templatepack.csproj"],
-    }],
-    ["@semantic-release/git", {
-      "assets": ["templatepack.csproj", "*.md", "docs"],
-      "message": "chore: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-    }]
-  ]
+    "branches": [
+        "main"
+    ],
+    "plugins": [
+        [
+            "@semantic-release/commit-analyzer",
+            {
+                "preset": "conventionalcommits"
+            }
+        ],
+        [
+            "@semantic-release/release-notes-generator",
+            {
+                "preset": "conventionalcommits"
+            }
+        ],
+        "@semantic-release/github",
+        "@semantic-release/changelog",
+        [
+            "semantic-release-dotnet",
+            {
+                "paths": [
+                    "templatepack.csproj"
+                ],
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": [
+                    "templatepack.csproj",
+                    "*.md",
+                    "docs"
+                ],
+                "message": "chore: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+            }
+        ]
+    ]
 }
