@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.2...v1.0.3) (2022-09-20)
+
+
+### Performance Improvements
+
+* **deps:** bump OpenTelemetry.Api from 1.3.0 to 1.3.1 ([#28](https://github.com/Azaferany/dotnet-quickstart-template/issues/28)) ([da02ec4](https://github.com/Azaferany/dotnet-quickstart-template/commit/da02ec4e1fbf458e1b81333352002eaaeabebe02))
+* **deps:** bump OpenTelemetry.Exporter.Jaeger from 1.3.0 to 1.3.1 ([#29](https://github.com/Azaferany/dotnet-quickstart-template/issues/29)) ([57d6cae](https://github.com/Azaferany/dotnet-quickstart-template/commit/57d6caea08daf3f18ec32b9dc1a4ca9251c6ae97))
+
 ## [1.0.2](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.1...v1.0.2) (2022-09-03)
 
 
