@@ -1,3 +1,18 @@
+## [1.0.4](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.3...v1.0.4) (2022-10-12)
+
+
+### Performance Improvements
+
+* **deps:** bump Microsoft.AspNetCore.Authentication.JwtBearer ([#51](https://github.com/Azaferany/dotnet-quickstart-template/issues/51)) ([4090ef6](https://github.com/Azaferany/dotnet-quickstart-template/commit/4090ef6b65986ae1ff0bc4b95552b633671bcf31))
+* **deps:** bump Microsoft.AspNetCore.Mvc.Testing from 6.0.9 to 6.0.10 ([#49](https://github.com/Azaferany/dotnet-quickstart-template/issues/49)) ([aadd761](https://github.com/Azaferany/dotnet-quickstart-template/commit/aadd7614d30c6e2a6b8d8ad6bc85a794195a90bf))
+* **deps:** bump Microsoft.EntityFrameworkCore.Design ([#55](https://github.com/Azaferany/dotnet-quickstart-template/issues/55)) ([2c58112](https://github.com/Azaferany/dotnet-quickstart-template/commit/2c5811202cbbb0377f366efd26c5cf26a3a36561))
+* **deps:** bump Microsoft.EntityFrameworkCore.InMemory ([#52](https://github.com/Azaferany/dotnet-quickstart-template/issues/52)) ([f411cab](https://github.com/Azaferany/dotnet-quickstart-template/commit/f411cab4f2fe7822723bc36ae166b933ed293359))
+* **deps:** bump Microsoft.Extensions.Caching.StackExchangeRedis ([#48](https://github.com/Azaferany/dotnet-quickstart-template/issues/48)) ([d85ccda](https://github.com/Azaferany/dotnet-quickstart-template/commit/d85ccda17c5fbb322a9f307b5d5aaaae50c0c0d2))
+* **deps:** bump Microsoft.Extensions.Diagnostics.HealthChecks ([#54](https://github.com/Azaferany/dotnet-quickstart-template/issues/54)) ([f1de8c7](https://github.com/Azaferany/dotnet-quickstart-template/commit/f1de8c79d960c0986e79274603553412233aa9a1))
+* **deps:** bump Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore ([#50](https://github.com/Azaferany/dotnet-quickstart-template/issues/50)) ([9d3f5c1](https://github.com/Azaferany/dotnet-quickstart-template/commit/9d3f5c14b7af969fae8df2897c6fef91c400069e))
+* **deps:** bump Microsoft.Extensions.Localization.Abstractions ([#53](https://github.com/Azaferany/dotnet-quickstart-template/issues/53)) ([dbd5591](https://github.com/Azaferany/dotnet-quickstart-template/commit/dbd559145980ec93a2f4d49d22b57fd551b82378))
+* remove direct reference to OpenTelemetry.Api ([b1d10de](https://github.com/Azaferany/dotnet-quickstart-template/commit/b1d10de53299804d6f6e2418b4ce559be80ef1b2))
+
 ## [1.0.3](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.2...v1.0.3) (2022-09-20)
 
 

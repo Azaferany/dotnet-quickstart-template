@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <PackageId>QuickstartTemplate</PackageId>
     <Title>Payping Corporation Web Api Application</Title>
     <Authors>Azaferany</Authors>
