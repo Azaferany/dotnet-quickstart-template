@@ -29,7 +29,7 @@
         <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.10" />
         <PackageReference Include="prometheus-net.AspNetCore" Version="6.0.0" />
         <PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="6.0.0" />
-        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="6.0.0" />
+        <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="7.0.0" />
         <PackageReference Include="prometheus-net.DotNetRuntime" Version="4.3.0" />
         <PackageReference Include="Npgsql.OpenTelemetry" Version="6.0.7" />
         <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.ElasticsearchClient" Version="1.0.0-beta2" />
