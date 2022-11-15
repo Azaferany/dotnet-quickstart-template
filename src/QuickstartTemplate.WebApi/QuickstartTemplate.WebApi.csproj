@@ -30,7 +30,7 @@
         <PackageReference Include="prometheus-net.AspNetCore" Version="7.0.0" />
         <PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="7.0.0" />
         <PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="7.0.0" />
-        <PackageReference Include="prometheus-net.DotNetRuntime" Version="4.3.0" />
+        <PackageReference Include="prometheus-net.DotNetRuntime" Version="4.4.0" />
         <PackageReference Include="Npgsql.OpenTelemetry" Version="6.0.7" />
         <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.ElasticsearchClient" Version="1.0.0-beta2" />
         <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta2" />
