@@ -1,3 +1,19 @@
+## [1.0.6](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.5...v1.0.6) (2023-04-30)
+
+
+### Performance Improvements
+
+*  bump OpenTelemetry ([f946043](https://github.com/Azaferany/dotnet-quickstart-template/commit/f946043f21d5038d93985e15640d71ae11b13077))
+* bump EntityFrameworkCore from 6.0.0 to 7.0.0 ([bed3928](https://github.com/Azaferany/dotnet-quickstart-template/commit/bed39285ee5822021a48d27b4997cd87ea9a17fe))
+* **deps:** bump FluentAssertions from 6.9.0 to 6.10.0 ([#168](https://github.com/Azaferany/dotnet-quickstart-template/issues/168)) ([9db5557](https://github.com/Azaferany/dotnet-quickstart-template/commit/9db5557b91d0d7a421f91a7a4f0038eb559b15ce))
+* **deps:** bump Microsoft.Extensions.Caching.StackExchangeRedis ([#134](https://github.com/Azaferany/dotnet-quickstart-template/issues/134)) ([8e74c0c](https://github.com/Azaferany/dotnet-quickstart-template/commit/8e74c0c4cfd5084845d65c36301ae722cbc179fd))
+* **deps:** bump Microsoft.Extensions.Localization from 7.0.1 to 7.0.2 ([#135](https://github.com/Azaferany/dotnet-quickstart-template/issues/135)) ([b071f4a](https://github.com/Azaferany/dotnet-quickstart-template/commit/b071f4a505ac0608ab3c118429e364fa699ae1d6))
+* **deps:** bump Npgsql.EntityFrameworkCore.PostgreSQL ([#181](https://github.com/Azaferany/dotnet-quickstart-template/issues/181)) ([e8d0cdc](https://github.com/Azaferany/dotnet-quickstart-template/commit/e8d0cdcfeeba56431502c21830182e96c1d7a7e3))
+* **deps:** bump prometheus-net.AspNetCore from 7.0.0 to 8.0.0 ([#184](https://github.com/Azaferany/dotnet-quickstart-template/issues/184)) ([b57198a](https://github.com/Azaferany/dotnet-quickstart-template/commit/b57198a33e0bced63f95f092f1d8d2e27a2bb4c6))
+* **deps:** bump prometheus-net.AspNetCore.Grpc from 7.0.0 to 8.0.0 ([#185](https://github.com/Azaferany/dotnet-quickstart-template/issues/185)) ([ea60683](https://github.com/Azaferany/dotnet-quickstart-template/commit/ea60683a3128f3f62b73e9d185525f3f869d0cb4))
+* **deps:** bump prometheus-net.AspNetCore.HealthChecks ([#183](https://github.com/Azaferany/dotnet-quickstart-template/issues/183)) ([bbb5d7f](https://github.com/Azaferany/dotnet-quickstart-template/commit/bbb5d7f556fc64212ec486f74f15b053ccb24919))
+* **deps:** bump Verify.Xunit from 19.9.2 to 19.10.0 ([#182](https://github.com/Azaferany/dotnet-quickstart-template/issues/182)) ([d9fc465](https://github.com/Azaferany/dotnet-quickstart-template/commit/d9fc465fa14aaa1a845b22b0238afa7c4e294b27))
+
 ## [1.0.5](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.4...v1.0.5) (2022-12-25)
 
 
