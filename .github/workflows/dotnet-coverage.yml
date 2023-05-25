@@ -1,0 +1,51 @@
+name: report test coverage
+on:
+  schedule:
+    - cron: '0 21 * * 6'
+  workflow_dispatch:
+
+jobs:
+  test-report:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Test
+        run: dotnet test QuickstartTemplate.sln
+
+      - name: Run the unit tests with code coverage
+        run: |
+          dotnet test QuickstartTemplate.sln --collect:"XPlat Code Coverage" --settings coverlet.runsettings
+
+      - name: install report generator
+        run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
+      - name: merge all test Coverage results
+        run: reportgenerator "-reports:.\test\*\TestResults\*\coverage.cobertura.xml" "-targetdir:.\docs\test_coverage" -reporttypes:Cobertura
+
+      - name: generate badges
+        run: reportgenerator "-reports:.\docs\test_coverage\Cobertura.xml" "-targetdir:.\docs\test_coverage\badges" -reporttypes:Badges
+
+      - name: generate html report
+        run: reportgenerator "-reports:.\docs\test_coverage\Cobertura.xml" "-targetdir:.\docs\test_coverage" -reporttypes:HtmlSummary
+
+      - name: generate markdown report
+        run: reportgenerator "-reports:.\docs\test_coverage\Cobertura.xml" "-targetdir:.\docs\test_coverage" -reporttypes:MarkdownSummaryGithub
+
+      - name: GIT commit and push all changed files
+        env:
+          CI_COMMIT_MESSAGE: "chore: Automated Coverage Report"
+          CI_COMMIT_AUTHOR: Github Actions
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "actions@github.com"
+          git add .\docs\test_coverage\Cobertura.xml
+          git add .\docs\test_coverage\badges\badge_shieldsio_linecoverage_blue.svg
+          git add .\docs\test_coverage\summary.html
+          git add .\docs\test_coverage\SummaryGithub.md
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
