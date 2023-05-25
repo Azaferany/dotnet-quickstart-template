@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Security.Claims;
 using FluentAssertions;
 using IdentityModel.AspNetCore.OAuth2Introspection;
@@ -110,5 +111,48 @@ public class UserDetailTests : IClassFixture<CustomWebApplicationFactory>
         var readFromString = await response.Content.ReadFromJsonAsync<string>();
 
         readFromString.Should().BeEquivalentTo(userId);
+    }
+    [Fact]
+    public async Task Test_Default_Culture_On_RequestLocalization()
+    {
+        var factory = _customWebApplicationFactory.WithWebHostBuilder(builder =>
+            builder.ConfigureServices(services =>
+                services.AddControllers()
+                    .AddApplicationPart(GetType().Assembly))); // add TestController to app Controller
+        // Arrange
+        var client = factory.CreateClient();
+        var request = new HttpRequestMessage(HttpMethod.Get, "v1/Test/Culture");
+
+        // Act
+        var response = await client.SendAsync(request);
+        response.EnsureSuccessStatusCode();
+
+        // Assert
+        var responseContent = await response.Content.ReadAsStringAsync();
+        responseContent.Should().Contain("Test-en");
+    }
+
+    [Theory]
+    [InlineData("en-US", "Test-en")]
+    [InlineData("fa-IR", "Test-fa")]
+    public async Task Test_Cultures_On_RequestLocalization(string acceptLanguageHeader, string expectedValue)
+    {
+        var factory = _customWebApplicationFactory.WithWebHostBuilder(builder =>
+            builder.ConfigureServices(services =>
+                services.AddControllers()
+                    .AddApplicationPart(GetType().Assembly))); // add TestController to app Controller
+        // Arrange
+        var client = factory.CreateClient();
+        client.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(acceptLanguageHeader));
+
+        var request = new HttpRequestMessage(HttpMethod.Get, "v1/Test/Culture");
+
+        // Act
+        var response = await client.SendAsync(request);
+        response.EnsureSuccessStatusCode();
+
+        // Assert
+        var responseContent = await response.Content.ReadAsStringAsync();
+        responseContent.Should().Contain(expectedValue);
     }
 }

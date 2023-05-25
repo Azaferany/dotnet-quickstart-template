@@ -265,7 +265,7 @@ public class Startup
     public void Configure(WebApplication app)
     {
         app.UseRequestLocalization(options =>
-            options.AddSupportedCultures("en-US", "fr-IR").SetDefaultCulture("en-US"));
+            options.AddSupportedUICultures("en-US", "fa-IR").SetDefaultCulture("en-US"));
 
         if (app.Environment.IsDevelopment())
         {
