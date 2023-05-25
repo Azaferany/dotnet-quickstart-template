@@ -10,13 +10,10 @@ public static class InfrastructureSetup
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddEntityFrameworkNpgsql();
 
         services.AddDbContextPool<IProjectDbContext, ProjectDbContext>((serviceProvider, optionsBuilder) =>
         {
-            optionsBuilder.UseNpgsql(
-                configuration.GetConnectionString("DefaultConnection"));
-            optionsBuilder.UseInternalServiceProvider(serviceProvider);
+            optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
 
             // Second level caching
             // optionsBuilder.AddInterceptors(serviceProvider.GetRequiredService<SecondLevelCacheInterceptor>());

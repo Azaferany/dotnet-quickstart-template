@@ -21,23 +21,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         builder.ConfigureServices(services =>
         {
 
-            #region remove Npgsql Ef and setup InMemory 
-
-            var dummyServices = new ServiceCollection();
-            dummyServices.AddEntityFrameworkNpgsql();
-            services.AddDbContextPool<IProjectDbContext, ProjectDbContext>((provider, options) =>
-            {
-                options.UseNpgsql("test npgsql");
-                options.UseInternalServiceProvider(provider);
-            });
-
-            foreach (var service in dummyServices)
-            {
-                if (service.ServiceType == typeof(ILoggerFactory))
-                    continue;
-
-                services.RemoveAll(service.ServiceType);
-            }
+            #region remove Npgsql Ef and setup InMemory
 
             var descriptor = services.SingleOrDefault(
                 d => d.ServiceType ==
@@ -45,12 +29,9 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
             services.Remove(descriptor);
 
-            services.AddEntityFrameworkInMemoryDatabase();
-
             services.AddDbContextPool<IProjectDbContext, ProjectDbContext>((provider, options) =>
             {
                 options.UseInMemoryDatabase("InMemoryDbForTesting");
-                options.UseInternalServiceProvider(provider);
             });
 
             var sp = services.BuildServiceProvider();
