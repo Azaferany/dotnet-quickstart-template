@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.9235668789808917" branch-rate="0.725" lines-covered="290" lines-valid="314" branches-covered="29" branches-valid="40" complexity="49" version="0" timestamp="1685027777">
+  <sources>
+    <source>D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\</source>
+  </sources>
+  <packages>
+    <package name="QuickstartTemplate.ApplicationCore" line-rate="1" branch-rate="1" complexity="1">
+      <classes>
+        <class name="QuickstartTemplate.ApplicationCore.ApplicationCoreSetup" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.ApplicationCore\ApplicationCoreSetup.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="AddApplication" signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="3" branch="false" />
+                <line number="10" hits="3" branch="false" />
+                <line number="11" hits="3" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="8" hits="3" branch="false" />
+            <line number="10" hits="3" branch="false" />
+            <line number="11" hits="3" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="QuickstartTemplate.Infrastructure" line-rate="0.9459459459459459" branch-rate="0.7352941176470589" complexity="37">
+      <classes>
+        <class name="QuickstartTemplate.Infrastructure.Common.GlobalHttpMessageHandlerBuilderFilter" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.Infrastructure\Common\GlobalHttpMessageHandlerBuilderFilter.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="Configure" signature="(System.Action`1&lt;Microsoft.Extensions.Http.HttpMessageHandlerBuilder&gt;)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="1" branch="false" />
+                <line number="17" hits="1" branch="false" />
+                <line number="18" hits="1" branch="false" />
+                <line number="19" hits="1" branch="false" />
+                <line number="20" hits="1" branch="false" />
+                <line number="21" hits="1" branch="false" />
+                <line number="22" hits="1" branch="false" />
+                <line number="23" hits="1" branch="false" />
+                <line number="24" hits="1" branch="false" />
+                <line number="25" hits="1" branch="false" />
+                <line number="26" hits="1" branch="false" />
+                <line number="27" hits="1" branch="false" />
+                <line number="28" hits="1" branch="false" />
+                <line number="29" hits="1" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="1" branch="false" />
+            <line number="17" hits="1" branch="false" />
+            <line number="18" hits="1" branch="false" />
+            <line number="19" hits="1" branch="false" />
+            <line number="20" hits="1" branch="false" />
+            <line number="21" hits="1" branch="false" />
+            <line number="22" hits="1" branch="false" />
+            <line number="23" hits="1" branch="false" />
+            <line number="24" hits="1" branch="false" />
+            <line number="25" hits="1" branch="false" />
+            <line number="26" hits="1" branch="false" />
+            <line number="27" hits="1" branch="false" />
+            <line number="28" hits="1" branch="false" />
+            <line number="29" hits="1" branch="false" />
+          </lines>
+        </class>
+        <class name="QuickstartTemplate.Infrastructure.DbContexts.ProjectDbContext" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.Infrastructure\DbContexts\ProjectDbContext.cs" line-rate="0.9148936170212766" branch-rate="0.7352941176470589" complexity="35">
+          <methods>
+            <method name="OnModelCreating" signature="(Microsoft.EntityFrameworkCore.ModelBuilder)" line-rate="0.5" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="18" hits="22" branch="false" />
+                <line number="19" hits="22" branch="false" />
+                <line number="22" hits="66" branch="true" condition-coverage="50% (1/2)" />
+                <line number="23" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
+                <line number="28" hits="22" branch="false" />
+              </lines>
+            </method>
+            <method name="SetEntitiesContracts" signature="(System.Threading.CancellationToken)" line-rate="1" branch-rate="0.75" complexity="32">
+              <lines>
+                <line number="47" hits="13" branch="false" />
+                <line number="48" hits="13" branch="false" />
+                <line number="49" hits="13" branch="false" />
+                <line number="51" hits="65" branch="true" condition-coverage="100% (2/2)" />
+                <line number="52" hits="13" branch="false" />
+                <line number="53" hits="13" branch="false" />
+                <line number="55" hits="13" branch="true" condition-coverage="100% (2/2)" />
+                <line number="56" hits="9" branch="false" />
+                <line number="57" hits="9" branch="true" condition-coverage="100% (2/2)" />
+                <line number="58" hits="2" branch="false" />
+                <line number="59" hits="2" branch="false" />
+                <line number="60" hits="2" branch="false" />
+                <line number="61" hits="2" branch="false" />
+                <line number="62" hits="2" branch="false" />
+                <line number="63" hits="9" branch="false" />
+                <line number="65" hits="13" branch="true" condition-coverage="100% (2/2)" />
+                <line number="66" hits="9" branch="false" />
+                <line number="67" hits="9" branch="true" condition-coverage="100% (2/2)" />
+                <line number="68" hits="5" branch="false" />
+                <line number="69" hits="5" branch="true" condition-coverage="63% (5/8)" />
+                <line number="70" hits="5" branch="false" />
+                <line number="71" hits="5" branch="false" />
+                <line number="72" hits="5" branch="false" />
+                <line number="74" hits="5" branch="false" />
+                <line number="75" hits="5" branch="false" />
+                <line number="76" hits="4" branch="true" condition-coverage="67% (4/6)" />
+                <line number="77" hits="4" branch="false" />
+                <line number="78" hits="4" branch="true" condition-coverage="63% (5/8)" />
+                <line number="79" hits="4" branch="false" />
+                <line number="80" hits="4" branch="false" />
+                <line number="81" hits="4" branch="false" />
+                <line number="83" hits="4" branch="false" />
+                <line number="84" hits="4" branch="false" />
+                <line number="85" hits="9" branch="false" />
+                <line number="86" hits="13" branch="false" />
+                <line number="87" hits="13" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.DbContextOptions)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="11" branch="false" />
+                <line number="14" hits="11" branch="false" />
+                <line number="15" hits="11" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="11" branch="false" />
+            <line number="14" hits="11" branch="false" />
+            <line number="15" hits="11" branch="false" />
+            <line number="18" hits="22" branch="false" />
+            <line number="19" hits="22" branch="false" />
+            <line number="22" hits="66" branch="true" condition-coverage="50% (1/2)" />
+            <line number="23" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
+            <line number="28" hits="22" branch="false" />
+            <line number="47" hits="13" branch="false" />
+            <line number="48" hits="13" branch="false" />
+            <line number="49" hits="13" branch="false" />
+            <line number="51" hits="65" branch="true" condition-coverage="100% (2/2)" />
+            <line number="52" hits="13" branch="false" />
+            <line number="53" hits="13" branch="false" />
+            <line number="55" hits="13" branch="true" condition-coverage="100% (2/2)" />
+            <line number="56" hits="9" branch="false" />
+            <line number="57" hits="9" branch="true" condition-coverage="100% (2/2)" />
+            <line number="58" hits="2" branch="false" />
+            <line number="59" hits="2" branch="false" />
+            <line number="60" hits="2" branch="false" />
+            <line number="61" hits="2" branch="false" />
+            <line number="62" hits="2" branch="false" />
+            <line number="63" hits="9" branch="false" />
+            <line number="65" hits="13" branch="true" condition-coverage="100% (2/2)" />
+            <line number="66" hits="9" branch="false" />
+            <line number="67" hits="9" branch="true" condition-coverage="100% (2/2)" />
+            <line number="68" hits="5" branch="false" />
+            <line number="69" hits="5" branch="true" condition-coverage="63% (5/8)" />
+            <line number="70" hits="5" branch="false" />
+            <line number="71" hits="5" branch="false" />
+            <line number="72" hits="5" branch="false" />
+            <line number="74" hits="5" branch="false" />
+            <line number="75" hits="5" branch="false" />
+            <line number="76" hits="4" branch="true" condition-coverage="67% (4/6)" />
+            <line number="77" hits="4" branch="false" />
+            <line number="78" hits="4" branch="true" condition-coverage="63% (5/8)" />
+            <line number="79" hits="4" branch="false" />
+            <line number="80" hits="4" branch="false" />
+            <line number="81" hits="4" branch="false" />
+            <line number="83" hits="4" branch="false" />
+            <line number="84" hits="4" branch="false" />
+            <line number="85" hits="9" branch="false" />
+            <line number="86" hits="13" branch="false" />
+            <line number="87" hits="13" branch="false" />
+          </lines>
+        </class>
+        <class name="QuickstartTemplate.Infrastructure.InfrastructureSetup" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.Infrastructure\InfrastructureSetup.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="AddInfrastructure" signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="3" branch="false" />
+                <line number="13" hits="3" branch="false" />
+                <line number="15" hits="3" branch="false" />
+                <line number="16" hits="3" branch="false" />
+                <line number="17" hits="3" branch="false" />
+                <line number="18" hits="3" branch="false" />
+                <line number="19" hits="3" branch="false" />
+                <line number="20" hits="3" branch="false" />
+                <line number="21" hits="3" branch="false" />
+                <line number="22" hits="3" branch="false" />
+                <line number="23" hits="3" branch="false" />
+                <line number="31" hits="3" branch="false" />
+                <line number="32" hits="3" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="12" hits="3" branch="false" />
+            <line number="13" hits="3" branch="false" />
+            <line number="15" hits="3" branch="false" />
+            <line number="16" hits="3" branch="false" />
+            <line number="17" hits="3" branch="false" />
+            <line number="18" hits="3" branch="false" />
+            <line number="19" hits="3" branch="false" />
+            <line number="20" hits="3" branch="false" />
+            <line number="21" hits="3" branch="false" />
+            <line number="22" hits="3" branch="false" />
+            <line number="23" hits="3" branch="false" />
+            <line number="31" hits="3" branch="false" />
+            <line number="32" hits="3" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="QuickstartTemplate.WebApi" line-rate="0.9156118143459916" branch-rate="0.6666666666666666" complexity="11">
+      <classes>
+        <class name="Program" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.WebApi\Program.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="&lt;Main&gt;$" signature="(System.String[])" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="3" branch="false" />
+                <line number="9" hits="3" branch="false" />
+                <line number="11" hits="3" branch="false" />
+                <line number="15" hits="3" branch="false" />
+                <line number="18" hits="3" branch="false" />
+                <line number="20" hits="3" branch="false" />
+                <line number="23" hits="3" branch="false" />
+                <line number="25" hits="3" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="3" branch="false" />
+            <line number="9" hits="3" branch="false" />
+            <line number="11" hits="3" branch="false" />
+            <line number="15" hits="3" branch="false" />
+            <line number="18" hits="3" branch="false" />
+            <line number="20" hits="3" branch="false" />
+            <line number="23" hits="3" branch="false" />
+            <line number="25" hits="3" branch="false" />
+          </lines>
+        </class>
+        <class name="QuickstartTemplate.WebApi.Controllers.WeatherForecastController" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.WebApi\Controllers\WeatherForecastController.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="Get" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="34" hits="0" branch="false" />
+                <line number="35" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="38" hits="0" branch="false" />
+                <line number="39" hits="0" branch="false" />
+                <line number="40" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.Extensions.Logging.ILogger`1&lt;QuickstartTemplate.WebApi.Controllers.WeatherForecastController&gt;)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".cctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="23" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="34" hits="0" branch="false" />
+            <line number="35" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="39" hits="0" branch="false" />
+            <line number="40" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="QuickstartTemplate.WebApi.Startup" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.WebApi\Startup.cs" line-rate="0.990521327014218" branch-rate="0.6666666666666666" complexity="6">
+          <methods>
+            <method name="ConfigureServices" signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection)" line-rate="0.9888888888888889" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="40" hits="3" branch="false" />
+                <line number="41" hits="3" branch="false" />
+                <line number="43" hits="3" branch="false" />
+                <line number="44" hits="3" branch="false" />
+                <line number="45" hits="3" branch="false" />
+                <line number="46" hits="3" branch="false" />
+                <line number="47" hits="3" branch="false" />
+                <line number="48" hits="3" branch="false" />
+                <line number="50" hits="3" branch="false" />
+                <line number="51" hits="3" branch="false" />
+                <line number="52" hits="3" branch="false" />
+                <line number="53" hits="3" branch="false" />
+                <line number="54" hits="3" branch="false" />
+                <line number="55" hits="3" branch="false" />
+                <line number="56" hits="3" branch="false" />
+                <line number="57" hits="3" branch="false" />
+                <line number="59" hits="3" branch="false" />
+                <line number="60" hits="3" branch="false" />
+                <line number="61" hits="3" branch="false" />
+                <line number="62" hits="3" branch="false" />
+                <line number="63" hits="3" branch="false" />
+                <line number="64" hits="3" branch="false" />
+                <line number="65" hits="3" branch="false" />
+                <line number="67" hits="3" branch="true" condition-coverage="50% (1/2)" />
+                <line number="68" hits="3" branch="false" />
+                <line number="70" hits="0" branch="false" />
+                <line number="71" hits="0" branch="false" />
+                <line number="73" hits="3" branch="false" />
+                <line number="74" hits="3" branch="false" />
+                <line number="75" hits="3" branch="false" />
+                <line number="76" hits="3" branch="false" />
+                <line number="77" hits="3" branch="false" />
+                <line number="78" hits="3" branch="false" />
+                <line number="79" hits="3" branch="false" />
+                <line number="80" hits="3" branch="false" />
+                <line number="81" hits="3" branch="false" />
+                <line number="82" hits="3" branch="false" />
+                <line number="83" hits="3" branch="false" />
+                <line number="84" hits="3" branch="false" />
+                <line number="85" hits="3" branch="false" />
+                <line number="86" hits="3" branch="false" />
+                <line number="87" hits="3" branch="false" />
+                <line number="88" hits="3" branch="false" />
+                <line number="89" hits="3" branch="false" />
+                <line number="90" hits="3" branch="false" />
+                <line number="91" hits="3" branch="false" />
+                <line number="92" hits="3" branch="false" />
+                <line number="93" hits="3" branch="false" />
+                <line number="94" hits="3" branch="false" />
+                <line number="95" hits="3" branch="false" />
+                <line number="97" hits="3" branch="false" />
+                <line number="99" hits="3" branch="false" />
+                <line number="100" hits="3" branch="false" />
+                <line number="101" hits="3" branch="false" />
+                <line number="102" hits="3" branch="false" />
+                <line number="103" hits="3" branch="false" />
+                <line number="104" hits="3" branch="false" />
+                <line number="105" hits="3" branch="false" />
+                <line number="106" hits="3" branch="false" />
+                <line number="107" hits="3" branch="false" />
+                <line number="109" hits="3" branch="false" />
+                <line number="110" hits="3" branch="false" />
+                <line number="112" hits="3" branch="false" />
+                <line number="115" hits="3" branch="false" />
+                <line number="116" hits="3" branch="false" />
+                <line number="117" hits="3" branch="false" />
+                <line number="118" hits="3" branch="false" />
+                <line number="119" hits="3" branch="false" />
+                <line number="121" hits="3" branch="false" />
+                <line number="122" hits="3" branch="false" />
+                <line number="125" hits="3" branch="false" />
+                <line number="126" hits="3" branch="false" />
+                <line number="127" hits="3" branch="false" />
+                <line number="128" hits="3" branch="false" />
+                <line number="129" hits="3" branch="false" />
+                <line number="131" hits="3" branch="false" />
+                <line number="132" hits="3" branch="false" />
+                <line number="133" hits="3" branch="false" />
+                <line number="134" hits="3" branch="false" />
+                <line number="135" hits="3" branch="false" />
+                <line number="136" hits="3" branch="false" />
+                <line number="137" hits="3" branch="false" />
+                <line number="138" hits="3" branch="false" />
+                <line number="139" hits="3" branch="false" />
+                <line number="140" hits="3" branch="false" />
+                <line number="141" hits="3" branch="false" />
+                <line number="142" hits="3" branch="false" />
+                <line number="143" hits="3" branch="false" />
+                <line number="144" hits="3" branch="false" />
+                <line number="145" hits="3" branch="false" />
+                <line number="146" hits="3" branch="false" />
+                <line number="147" hits="3" branch="false" />
+                <line number="148" hits="3" branch="false" />
+                <line number="149" hits="3" branch="false" />
+                <line number="150" hits="3" branch="false" />
+                <line number="151" hits="3" branch="false" />
+                <line number="152" hits="3" branch="false" />
+                <line number="153" hits="3" branch="false" />
+                <line number="154" hits="3" branch="false" />
+                <line number="155" hits="3" branch="false" />
+                <line number="156" hits="3" branch="false" />
+                <line number="157" hits="3" branch="false" />
+                <line number="158" hits="3" branch="false" />
+                <line number="159" hits="3" branch="false" />
+                <line number="160" hits="3" branch="false" />
+                <line number="161" hits="3" branch="false" />
+                <line number="162" hits="3" branch="false" />
+                <line number="163" hits="3" branch="false" />
+                <line number="164" hits="3" branch="false" />
+                <line number="165" hits="3" branch="false" />
+                <line number="166" hits="3" branch="false" />
+                <line number="167" hits="3" branch="false" />
+                <line number="168" hits="3" branch="false" />
+                <line number="169" hits="3" branch="false" />
+                <line number="170" hits="3" branch="false" />
+                <line number="171" hits="3" branch="false" />
+                <line number="172" hits="3" branch="false" />
+                <line number="173" hits="3" branch="false" />
+                <line number="174" hits="3" branch="false" />
+                <line number="175" hits="3" branch="false" />
+                <line number="176" hits="3" branch="false" />
+                <line number="177" hits="3" branch="false" />
+                <line number="178" hits="3" branch="false" />
+                <line number="179" hits="3" branch="false" />
+                <line number="180" hits="3" branch="false" />
+                <line number="181" hits="3" branch="false" />
+                <line number="182" hits="3" branch="false" />
+                <line number="183" hits="3" branch="false" />
+                <line number="184" hits="3" branch="false" />
+                <line number="185" hits="3" branch="false" />
+                <line number="186" hits="3" branch="false" />
+                <line number="187" hits="3" branch="false" />
+                <line number="188" hits="3" branch="false" />
+                <line number="189" hits="3" branch="false" />
+                <line number="190" hits="3" branch="false" />
+                <line number="191" hits="3" branch="false" />
+                <line number="192" hits="3" branch="false" />
+                <line number="193" hits="3" branch="false" />
+                <line number="194" hits="3" branch="false" />
+                <line number="195" hits="3" branch="false" />
+                <line number="196" hits="3" branch="false" />
+                <line number="197" hits="3" branch="false" />
+                <line number="198" hits="3" branch="false" />
+                <line number="199" hits="3" branch="false" />
+                <line number="200" hits="3" branch="false" />
+                <line number="201" hits="3" branch="false" />
+                <line number="202" hits="3" branch="false" />
+                <line number="203" hits="3" branch="false" />
+                <line number="204" hits="3" branch="false" />
+                <line number="205" hits="3" branch="false" />
+                <line number="206" hits="3" branch="false" />
+                <line number="207" hits="3" branch="false" />
+                <line number="208" hits="3" branch="false" />
+                <line number="209" hits="3" branch="false" />
+                <line number="210" hits="3" branch="false" />
+                <line number="211" hits="3" branch="false" />
+                <line number="217" hits="3" branch="false" />
+                <line number="219" hits="3" branch="false" />
+                <line number="220" hits="3" branch="false" />
+                <line number="221" hits="3" branch="false" />
+                <line number="222" hits="3" branch="false" />
+                <line number="223" hits="3" branch="false" />
+                <line number="224" hits="3" branch="false" />
+                <line number="225" hits="3" branch="false" />
+                <line number="226" hits="3" branch="false" />
+                <line number="227" hits="3" branch="false" />
+                <line number="228" hits="3" branch="false" />
+                <line number="229" hits="3" branch="false" />
+                <line number="230" hits="3" branch="false" />
+                <line number="231" hits="3" branch="false" />
+                <line number="232" hits="3" branch="false" />
+                <line number="233" hits="3" branch="false" />
+                <line number="234" hits="3" branch="false" />
+                <line number="235" hits="3" branch="false" />
+                <line number="236" hits="3" branch="false" />
+                <line number="237" hits="3" branch="false" />
+                <line number="238" hits="3" branch="false" />
+                <line number="261" hits="3" branch="false" />
+                <line number="262" hits="3" branch="false" />
+                <line number="263" hits="3" branch="false" />
+              </lines>
+            </method>
+            <method name="Configure" signature="(Microsoft.AspNetCore.Builder.WebApplication)" line-rate="1" branch-rate="1" complexity="2">
+              <lines>
+                <line number="266" hits="3" branch="false" />
+                <line number="267" hits="3" branch="false" />
+                <line number="268" hits="3" branch="false" />
+                <line number="270" hits="3" branch="true" condition-coverage="100% (2/2)" />
+                <line number="271" hits="3" branch="false" />
+                <line number="272" hits="3" branch="false" />
+                <line number="273" hits="3" branch="false" />
+                <line number="274" hits="3" branch="false" />
+                <line number="275" hits="3" branch="false" />
+                <line number="276" hits="3" branch="false" />
+                <line number="277" hits="3" branch="false" />
+                <line number="278" hits="3" branch="false" />
+                <line number="279" hits="3" branch="false" />
+                <line number="281" hits="3" branch="false" />
+                <line number="283" hits="3" branch="false" />
+                <line number="287" hits="3" branch="false" />
+                <line number="291" hits="3" branch="false" />
+                <line number="294" hits="3" branch="false" />
+                <line number="296" hits="3" branch="false" />
+                <line number="297" hits="3" branch="false" />
+                <line number="299" hits="3" branch="false" />
+                <line number="301" hits="3" branch="false" />
+                <line number="303" hits="3" branch="false" />
+                <line number="304" hits="3" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.Extensions.Configuration.IConfiguration)" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="26" hits="3" branch="false" />
+                <line number="27" hits="3" branch="false" />
+                <line number="28" hits="3" branch="false" />
+                <line number="30" hits="3" branch="true" condition-coverage="50% (1/2)" />
+                <line number="31" hits="3" branch="false" />
+                <line number="32" hits="3" branch="false" />
+                <line number="33" hits="3" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="26" hits="3" branch="false" />
+            <line number="27" hits="3" branch="false" />
+            <line number="28" hits="3" branch="false" />
+            <line number="30" hits="3" branch="true" condition-coverage="50% (1/2)" />
+            <line number="31" hits="3" branch="false" />
+            <line number="32" hits="3" branch="false" />
+            <line number="33" hits="3" branch="false" />
+            <line number="40" hits="3" branch="false" />
+            <line number="41" hits="3" branch="false" />
+            <line number="43" hits="3" branch="false" />
+            <line number="44" hits="3" branch="false" />
+            <line number="45" hits="3" branch="false" />
+            <line number="46" hits="3" branch="false" />
+            <line number="47" hits="3" branch="false" />
+            <line number="48" hits="3" branch="false" />
+            <line number="50" hits="3" branch="false" />
+            <line number="51" hits="3" branch="false" />
+            <line number="52" hits="3" branch="false" />
+            <line number="53" hits="3" branch="false" />
+            <line number="54" hits="3" branch="false" />
+            <line number="55" hits="3" branch="false" />
+            <line number="56" hits="3" branch="false" />
+            <line number="57" hits="3" branch="false" />
+            <line number="59" hits="3" branch="false" />
+            <line number="60" hits="3" branch="false" />
+            <line number="61" hits="3" branch="false" />
+            <line number="62" hits="3" branch="false" />
+            <line number="63" hits="3" branch="false" />
+            <line number="64" hits="3" branch="false" />
+            <line number="65" hits="3" branch="false" />
+            <line number="67" hits="3" branch="true" condition-coverage="50% (1/2)" />
+            <line number="68" hits="3" branch="false" />
+            <line number="70" hits="0" branch="false" />
+            <line number="71" hits="0" branch="false" />
+            <line number="73" hits="3" branch="false" />
+            <line number="74" hits="3" branch="false" />
+            <line number="75" hits="3" branch="false" />
+            <line number="76" hits="3" branch="false" />
+            <line number="77" hits="3" branch="false" />
+            <line number="78" hits="3" branch="false" />
+            <line number="79" hits="3" branch="false" />
+            <line number="80" hits="3" branch="false" />
+            <line number="81" hits="3" branch="false" />
+            <line number="82" hits="3" branch="false" />
+            <line number="83" hits="3" branch="false" />
+            <line number="84" hits="3" branch="false" />
+            <line number="85" hits="3" branch="false" />
+            <line number="86" hits="3" branch="false" />
+            <line number="87" hits="3" branch="false" />
+            <line number="88" hits="3" branch="false" />
+            <line number="89" hits="3" branch="false" />
+            <line number="90" hits="3" branch="false" />
+            <line number="91" hits="3" branch="false" />
+            <line number="92" hits="3" branch="false" />
+            <line number="93" hits="3" branch="false" />
+            <line number="94" hits="3" branch="false" />
+            <line number="95" hits="3" branch="false" />
+            <line number="97" hits="3" branch="false" />
+            <line number="99" hits="3" branch="false" />
+            <line number="100" hits="3" branch="false" />
+            <line number="101" hits="3" branch="false" />
+            <line number="102" hits="3" branch="false" />
+            <line number="103" hits="3" branch="false" />
+            <line number="104" hits="3" branch="false" />
+            <line number="105" hits="3" branch="false" />
+            <line number="106" hits="3" branch="false" />
+            <line number="107" hits="3" branch="false" />
+            <line number="109" hits="3" branch="false" />
+            <line number="110" hits="3" branch="false" />
+            <line number="112" hits="3" branch="false" />
+            <line number="115" hits="3" branch="false" />
+            <line number="116" hits="3" branch="false" />
+            <line number="117" hits="3" branch="false" />
+            <line number="118" hits="3" branch="false" />
+            <line number="119" hits="3" branch="false" />
+            <line number="121" hits="3" branch="false" />
+            <line number="122" hits="3" branch="false" />
+            <line number="125" hits="3" branch="false" />
+            <line number="126" hits="3" branch="false" />
+            <line number="127" hits="3" branch="false" />
+            <line number="128" hits="3" branch="false" />
+            <line number="129" hits="3" branch="false" />
+            <line number="131" hits="3" branch="false" />
+            <line number="132" hits="3" branch="false" />
+            <line number="133" hits="3" branch="false" />
+            <line number="134" hits="3" branch="false" />
+            <line number="135" hits="3" branch="false" />
+            <line number="136" hits="3" branch="false" />
+            <line number="137" hits="3" branch="false" />
+            <line number="138" hits="3" branch="false" />
+            <line number="139" hits="3" branch="false" />
+            <line number="140" hits="3" branch="false" />
+            <line number="141" hits="3" branch="false" />
+            <line number="142" hits="3" branch="false" />
+            <line number="143" hits="3" branch="false" />
+            <line number="144" hits="3" branch="false" />
+            <line number="145" hits="3" branch="false" />
+            <line number="146" hits="3" branch="false" />
+            <line number="147" hits="3" branch="false" />
+            <line number="148" hits="3" branch="false" />
+            <line number="149" hits="3" branch="false" />
+            <line number="150" hits="3" branch="false" />
+            <line number="151" hits="3" branch="false" />
+            <line number="152" hits="3" branch="false" />
+            <line number="153" hits="3" branch="false" />
+            <line number="154" hits="3" branch="false" />
+            <line number="155" hits="3" branch="false" />
+            <line number="156" hits="3" branch="false" />
+            <line number="157" hits="3" branch="false" />
+            <line number="158" hits="3" branch="false" />
+            <line number="159" hits="3" branch="false" />
+            <line number="160" hits="3" branch="false" />
+            <line number="161" hits="3" branch="false" />
+            <line number="162" hits="3" branch="false" />
+            <line number="163" hits="3" branch="false" />
+            <line number="164" hits="3" branch="false" />
+            <line number="165" hits="3" branch="false" />
+            <line number="166" hits="3" branch="false" />
+            <line number="167" hits="3" branch="false" />
+            <line number="168" hits="3" branch="false" />
+            <line number="169" hits="3" branch="false" />
+            <line number="170" hits="3" branch="false" />
+            <line number="171" hits="3" branch="false" />
+            <line number="172" hits="3" branch="false" />
+            <line number="173" hits="3" branch="false" />
+            <line number="174" hits="3" branch="false" />
+            <line number="175" hits="3" branch="false" />
+            <line number="176" hits="3" branch="false" />
+            <line number="177" hits="3" branch="false" />
+            <line number="178" hits="3" branch="false" />
+            <line number="179" hits="3" branch="false" />
+            <line number="180" hits="3" branch="false" />
+            <line number="181" hits="3" branch="false" />
+            <line number="182" hits="3" branch="false" />
+            <line number="183" hits="3" branch="false" />
+            <line number="184" hits="3" branch="false" />
+            <line number="185" hits="3" branch="false" />
+            <line number="186" hits="3" branch="false" />
+            <line number="187" hits="3" branch="false" />
+            <line number="188" hits="3" branch="false" />
+            <line number="189" hits="3" branch="false" />
+            <line number="190" hits="3" branch="false" />
+            <line number="191" hits="3" branch="false" />
+            <line number="192" hits="3" branch="false" />
+            <line number="193" hits="3" branch="false" />
+            <line number="194" hits="3" branch="false" />
+            <line number="195" hits="3" branch="false" />
+            <line number="196" hits="3" branch="false" />
+            <line number="197" hits="3" branch="false" />
+            <line number="198" hits="3" branch="false" />
+            <line number="199" hits="3" branch="false" />
+            <line number="200" hits="3" branch="false" />
+            <line number="201" hits="3" branch="false" />
+            <line number="202" hits="3" branch="false" />
+            <line number="203" hits="3" branch="false" />
+            <line number="204" hits="3" branch="false" />
+            <line number="205" hits="3" branch="false" />
+            <line number="206" hits="3" branch="false" />
+            <line number="207" hits="3" branch="false" />
+            <line number="208" hits="3" branch="false" />
+            <line number="209" hits="3" branch="false" />
+            <line number="210" hits="3" branch="false" />
+            <line number="211" hits="3" branch="false" />
+            <line number="217" hits="3" branch="false" />
+            <line number="219" hits="3" branch="false" />
+            <line number="220" hits="3" branch="false" />
+            <line number="221" hits="3" branch="false" />
+            <line number="222" hits="3" branch="false" />
+            <line number="223" hits="3" branch="false" />
+            <line number="224" hits="3" branch="false" />
+            <line number="225" hits="3" branch="false" />
+            <line number="226" hits="3" branch="false" />
+            <line number="227" hits="3" branch="false" />
+            <line number="228" hits="3" branch="false" />
+            <line number="229" hits="3" branch="false" />
+            <line number="230" hits="3" branch="false" />
+            <line number="231" hits="3" branch="false" />
+            <line number="232" hits="3" branch="false" />
+            <line number="233" hits="3" branch="false" />
+            <line number="234" hits="3" branch="false" />
+            <line number="235" hits="3" branch="false" />
+            <line number="236" hits="3" branch="false" />
+            <line number="237" hits="3" branch="false" />
+            <line number="238" hits="3" branch="false" />
+            <line number="261" hits="3" branch="false" />
+            <line number="262" hits="3" branch="false" />
+            <line number="263" hits="3" branch="false" />
+            <line number="266" hits="3" branch="false" />
+            <line number="267" hits="3" branch="false" />
+            <line number="268" hits="3" branch="false" />
+            <line number="270" hits="3" branch="true" condition-coverage="100% (2/2)" />
+            <line number="271" hits="3" branch="false" />
+            <line number="272" hits="3" branch="false" />
+            <line number="273" hits="3" branch="false" />
+            <line number="274" hits="3" branch="false" />
+            <line number="275" hits="3" branch="false" />
+            <line number="276" hits="3" branch="false" />
+            <line number="277" hits="3" branch="false" />
+            <line number="278" hits="3" branch="false" />
+            <line number="279" hits="3" branch="false" />
+            <line number="281" hits="3" branch="false" />
+            <line number="283" hits="3" branch="false" />
+            <line number="287" hits="3" branch="false" />
+            <line number="291" hits="3" branch="false" />
+            <line number="294" hits="3" branch="false" />
+            <line number="296" hits="3" branch="false" />
+            <line number="297" hits="3" branch="false" />
+            <line number="299" hits="3" branch="false" />
+            <line number="301" hits="3" branch="false" />
+            <line number="303" hits="3" branch="false" />
+            <line number="304" hits="3" branch="false" />
+          </lines>
+        </class>
+        <class name="QuickstartTemplate.WebApi.WeatherForecast" filename="D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\QuickstartTemplate.WebApi\WeatherForecast.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="get_TemperatureF" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
