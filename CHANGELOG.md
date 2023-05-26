@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.6...v1.0.7) (2023-05-26)
+
+
+### Performance Improvements
+
+* **deps:** bump Microsoft.AspNetCore.Authentication.JwtBearer ([#240](https://github.com/Azaferany/dotnet-quickstart-template/issues/240)) ([e7849b6](https://github.com/Azaferany/dotnet-quickstart-template/commit/e7849b65ff49503d73f1a4e469bf786d99c37b9c))
+* **deps:** bump Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore ([#241](https://github.com/Azaferany/dotnet-quickstart-template/issues/241)) ([52b8c38](https://github.com/Azaferany/dotnet-quickstart-template/commit/52b8c38c5d027ff09434c86f9cb1f2600e3bac6b))
+
 ## [1.0.6](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.5...v1.0.6) (2023-04-30)
 
 
