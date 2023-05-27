@@ -3,17 +3,17 @@
 
 |||
 |:---|:---|
-| Generated on: | 5/25/2023 - 3:16:32 PM |
-| Coverage date: | 5/25/2023 - 3:16:17 PM |
+| Generated on: | 5/27/2023 - 9:03:30 PM |
+| Coverage date: | 5/27/2023 - 9:03:12 PM |
 | Parser: | Cobertura |
 | Assemblies: | 3 |
 | Classes: | 8 |
 | Files: | 8 |
-| **Line coverage:** | 92.3% (290 of 314) |
-| Covered lines: | 290 |
+| **Line coverage:** | 92.2% (287 of 311) |
+| Covered lines: | 287 |
 | Uncovered lines: | 24 |
-| Coverable lines: | 314 |
-| Total lines: | 554 |
+| Coverable lines: | 311 |
+| Total lines: | 551 |
 | **Branch coverage:** | 72.5% (29 of 40) |
 | Covered branches: | 29 |
 | Total branches: | 40 |
@@ -30,11 +30,11 @@
 |QuickstartTemplate.ApplicationCore.ApplicationCoreSetup|100%||
 
 </details>
-<details><summary>QuickstartTemplate.Infrastructure - 94.5%</summary>
+<details><summary>QuickstartTemplate.Infrastructure - 94.3%</summary>
 
 |**Name**|**Line**|**Branch**|
 |:---|---:|---:|
-|**QuickstartTemplate.Infrastructure**|**94.5%**|**73.5%**|
+|**QuickstartTemplate.Infrastructure**|**94.3%**|**73.5%**|
 |QuickstartTemplate.Infrastructure.Common.GlobalHttpMessageHandlerBuilderFil<br/>ter|100%||
 |QuickstartTemplate.Infrastructure.DbContexts.ProjectDbContext|91.4%|73.5%|
 |QuickstartTemplate.Infrastructure.InfrastructureSetup|100%||
