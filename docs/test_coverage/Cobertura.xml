@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.9228295819935691" branch-rate="0.725" lines-covered="287" lines-valid="311" branches-covered="29" branches-valid="40" complexity="49" version="0" timestamp="1685221392">
+<coverage line-rate="0.9228295819935691" branch-rate="0.725" lines-covered="287" lines-valid="311" branches-covered="29" branches-valid="40" complexity="49" version="0" timestamp="1685826170">
   <sources>
     <source>D:\a\dotnet-quickstart-template\dotnet-quickstart-template\src\</source>
   </sources>
