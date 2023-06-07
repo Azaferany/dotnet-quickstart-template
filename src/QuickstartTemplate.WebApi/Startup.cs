@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
-using IdentityModel.AspNetCore.AccessTokenValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Internal;
 using Microsoft.OpenApi.Models;
 using Npgsql;
+using OpenTelemetry;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using Prometheus;
@@ -77,33 +77,21 @@ public class Startup
                 options.Authority = _configuration["Authentication:Authority"];
                 options.Audience = _configuration["Authentication:ApiName"];
                 options.MapInboundClaims = false;
-                options.TokenValidationParameters.NameClaimType = "sub"; // user id accessible by HttpContext.User.Identity.Name
+                options.TokenValidationParameters.NameClaimType =
+                    "sub"; // user id accessible by HttpContext.User.Identity.Name
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = true;
-                // if token does not contain a dot, it is a reference token
-                options.ForwardDefaultSelector = Selector.ForwardReferenceToken("Introspection");
-            })
-
-            // reference tokens
-            .AddOAuth2Introspection("Introspection", options =>
-            {
-                options.Authority = _configuration["Authentication:Authority"];
-                options.ClientId = _configuration["Authentication:ApiName"];
-                options.ClientSecret = _configuration["Authentication:ApiSecret"];
-                options.NameClaimType = "sub"; // user id accessible by HttpContext.User.Identity.Name
-                options.EnableCaching = true;
             });
 
-        services.AddScopeTransformation();
 
         services.AddAuthorization(options =>
         {
             options.AddPolicy("admin",
-                policy => policy.RequireScope("QuickstartTemplate:admin"));
+                policy => policy.RequireRole("QuickstartTemplate:admin"));
             options.AddPolicy("read",
-                policy => policy.RequireScope("QuickstartTemplate:read"));
+                policy => policy.RequireRole("QuickstartTemplate:read"));
             options.AddPolicy("write",
-                policy => policy.RequireScope("QuickstartTemplate:write"));
+                policy => policy.RequireRole("QuickstartTemplate:write"));
         });
 
         services.AddHttpContextAccessor();
@@ -147,40 +135,6 @@ public class Startup
             //... and tell Swagger to use those XML comments.
             options.IncludeXmlComments(xmlPath);
 
-            options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-            {
-                Type = SecuritySchemeType.OAuth2,
-                Flows = new OpenApiOAuthFlows
-                {
-                    Password = new OpenApiOAuthFlow
-                    {
-                        TokenUrl = new Uri($"{_configuration["Authentication:Authority"]}/connect/token"),
-                    },
-                    ClientCredentials = new OpenApiOAuthFlow
-                    {
-                        TokenUrl = new Uri($"{_configuration["Authentication:Authority"]}/connect/token"),
-                    }
-                }
-            });
-
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement()
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "oauth2"
-                        },
-                        Scheme = "oauth2",
-                        Name = "oauth2",
-                        In = ParameterLocation.Header
-                    },
-                    new List<string>()
-                }
-            });
-
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Description = "JWT Authorization header using the Bearer scheme. Example: 'Bearer 12345abcdef'",
@@ -216,7 +170,7 @@ public class Startup
         //https://github.com/dotnet/aspnetcore/issues/39317
         services.AddHttpLogging(options => _configuration.Bind("HttpLogging", options));
 
-        services.AddOpenTelemetryTracing(builder =>
+        services.AddOpenTelemetry().WithTracing(builder =>
         {
             builder.AddSource(typeof(Startup).Assembly.FullName);
             builder.AddSource(typeof(ApplicationCoreSetup).Assembly.FullName);
@@ -246,6 +200,7 @@ public class Startup
             .WithExceptionStats()
             .WithErrorHandler(ex => Console.WriteLine("ERROR on per: " + ex))
             .StartCollecting();
+#endif
 
         //https://github.com/prometheus-net/prometheus-net#eventcounter-integration
         // Collect below metrics and more
@@ -256,7 +211,6 @@ public class Startup
 
         //https://github.com/prometheus-net/prometheus-net#net-6-meters-integration
         var meter = MeterAdapter.StartListening();
-#endif
 
         services.AddHealthChecks()
             .AddDbContextCheck<ProjectDbContext>();

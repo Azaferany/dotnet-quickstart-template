@@ -105,19 +105,6 @@
       }
     },
     "securitySchemes": {
-      "oauth2": {
-        "type": "oauth2",
-        "flows": {
-          "password": {
-            "tokenUrl": "https://demo.duendesoftware.com/connect/token",
-            "scopes": { }
-          },
-          "clientCredentials": {
-            "tokenUrl": "https://demo.duendesoftware.com/connect/token",
-            "scopes": { }
-          }
-        }
-      },
       "Bearer": {
         "type": "apiKey",
         "description": "JWT Authorization header using the Bearer scheme. Example: 'Bearer 12345abcdef'",
@@ -127,9 +114,6 @@
     }
   },
   "security": [
-    {
-      "oauth2": [ ]
-    },
     {
       "Bearer": [ ]
     }

@@ -37,3 +37,7 @@ msbuild.wrn
 .vs/
 
 *.nupkg
+
+
+/test/*/*.received.txt
+/test/*/*/*.feature.cs
