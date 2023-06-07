@@ -1,0 +1,38 @@
+name: sanitycheck
+
+on: [push, pull_request, workflow_dispatch]
+
+
+jobs:
+  misspell:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out code
+        uses: actions/checkout@v3
+
+      - name: misspell check on pull request
+        uses: reviewdog/action-misspell@v1
+        if: github.event_name == 'pull_request'
+        with:
+          github_token: ${{ secrets.github_token }}
+          fail_on_error: "true"
+
+      - name: install misspell
+        run: |
+          curl -L -o ./install-misspell.sh https://git.io/misspell
+          sh ./install-misspell.sh
+
+      - name: run misspell check
+        if: github.event_name == 'push'
+        run: ./bin/misspell -error .
+
+      - name: run misspell check and fix misspells
+        if: github.event_name == 'workflow_dispatch'
+        run: ./bin/misspell -w .
+      - uses: peter-evans/create-pull-request@v5
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: fix misspells"
+          title: 'chore: fix misspells'
