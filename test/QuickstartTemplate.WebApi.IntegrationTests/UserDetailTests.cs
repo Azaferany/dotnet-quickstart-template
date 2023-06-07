@@ -30,7 +30,7 @@ public class UserDetailTests : IClassFixture<CustomWebApplicationFactory>
 
         var userId = "64624";
         client.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer",MockJwtTokens.GenerateJwtToken(new[] { new Claim("sub", userId) }));
+            new AuthenticationHeaderValue("Bearer", MockJwtTokens.GenerateJwtToken(new[] { new Claim("sub", userId) }));
 
         var response = await client.SendAsync(request);
         response.EnsureSuccessStatusCode();
