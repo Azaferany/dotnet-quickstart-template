@@ -1,3 +1,11 @@
+## [1.0.8](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.7...v1.0.8) (2023-06-07)
+
+
+### Performance Improvements
+
+* exclude commitlint.config.js ([c6a510f](https://github.com/Azaferany/dotnet-quickstart-template/commit/c6a510f8bdf73d218dcb1d3e896f1427abd1dc45))
+* remove oauth2 introspection authentication ([d7b3f6a](https://github.com/Azaferany/dotnet-quickstart-template/commit/d7b3f6ac0310f3e218000dcd8a868b2837cbdc03))
+
 ## [1.0.7](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.6...v1.0.7) (2023-05-26)
 
 
