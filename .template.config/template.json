@@ -40,6 +40,7 @@
         "/.git/" ,
         "logs/",
         ".releaserc",
+        "commitlint.config.js",
         "*.md",
         "templatepack.csproj"
       ]
