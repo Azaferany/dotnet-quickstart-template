@@ -3,17 +3,17 @@
 
 |||
 |:---|:---|
-| Generated on: | 6/3/2023 - 9:02:58 PM |
-| Coverage date: | 6/3/2023 - 9:02:50 PM |
+| Generated on: | 6/10/2023 - 9:04:02 PM |
+| Coverage date: | 6/10/2023 - 9:03:53 PM |
 | Parser: | Cobertura |
 | Assemblies: | 3 |
 | Classes: | 8 |
 | Files: | 8 |
-| **Line coverage:** | 92.2% (287 of 311) |
-| Covered lines: | 287 |
-| Uncovered lines: | 24 |
-| Coverable lines: | 311 |
-| Total lines: | 551 |
+| **Line coverage:** | 85.7% (229 of 267) |
+| Covered lines: | 229 |
+| Uncovered lines: | 38 |
+| Coverable lines: | 267 |
+| Total lines: | 505 |
 | **Branch coverage:** | 72.5% (29 of 40) |
 | Covered branches: | 29 |
 | Total branches: | 40 |
@@ -30,24 +30,24 @@
 |QuickstartTemplate.ApplicationCore.ApplicationCoreSetup|100%||
 
 </details>
-<details><summary>QuickstartTemplate.Infrastructure - 94.3%</summary>
+<details><summary>QuickstartTemplate.Infrastructure - 74.6%</summary>
 
 |**Name**|**Line**|**Branch**|
 |:---|---:|---:|
-|**QuickstartTemplate.Infrastructure**|**94.3%**|**73.5%**|
-|QuickstartTemplate.Infrastructure.Common.GlobalHttpMessageHandlerBuilderFil<br/>ter|100%||
+|**QuickstartTemplate.Infrastructure**|**74.6%**|**73.5%**|
+|QuickstartTemplate.Infrastructure.Common.GlobalHttpMessageHandlerBuilderFil<br/>ter|0%||
 |QuickstartTemplate.Infrastructure.DbContexts.ProjectDbContext|91.4%|73.5%|
 |QuickstartTemplate.Infrastructure.InfrastructureSetup|100%||
 
 </details>
-<details><summary>QuickstartTemplate.WebApi - 91.5%</summary>
+<details><summary>QuickstartTemplate.WebApi - 89.6%</summary>
 
 |**Name**|**Line**|**Branch**|
 |:---|---:|---:|
-|**QuickstartTemplate.WebApi**|**91.5%**|**66.6%**|
+|**QuickstartTemplate.WebApi**|**89.6%**|**66.6%**|
 |Program|100%||
 |QuickstartTemplate.WebApi.Controllers.WeatherForecastController|0%||
-|QuickstartTemplate.WebApi.Startup|99%|66.6%|
+|QuickstartTemplate.WebApi.Startup|98.8%|66.6%|
 |QuickstartTemplate.WebApi.WeatherForecast|0%||
 
 </details>
