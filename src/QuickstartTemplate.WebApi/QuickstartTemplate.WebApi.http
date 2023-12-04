@@ -1,0 +1,6 @@
+@QuickstartTemplate_WebApi_HostAddress = http://localhost:5011
+
+GET {{QuickstartTemplate_WebApi_HostAddress}}/v1/weatherforecast/
+Accept: application/json
+
+###
