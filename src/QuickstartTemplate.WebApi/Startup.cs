@@ -103,7 +103,7 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
         {
-            options.SwaggerDoc("v1", new ()
+            options.SwaggerDoc("v1", new()
             {
                 Title = "v1",
                 Version = "v1"
