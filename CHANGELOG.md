@@ -1,3 +1,26 @@
+## [2.0.0](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.8...v2.0.0) (2023-12-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* the .net version has been change from 6 to .net8
+
+### Features
+
+* upgrade to .net8 + all its related packages ([cda3c5d](https://github.com/Azaferany/dotnet-quickstart-template/commit/cda3c5d064fc8af6ce04fd6c220cd38a2e1edc41))
+
+
+### Performance Improvements
+
+* bump Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore ([#266](https://github.com/Azaferany/dotnet-quickstart-template/issues/266)) ([6dc6bca](https://github.com/Azaferany/dotnet-quickstart-template/commit/6dc6bca239f2327428a0824a65947cdd72c88394))
+* **deps:** bump Microsoft.AspNetCore.Authentication.JwtBearer ([#258](https://github.com/Azaferany/dotnet-quickstart-template/issues/258)) ([c3aadca](https://github.com/Azaferany/dotnet-quickstart-template/commit/c3aadca6e31bf86a26cf1dad7c83815ce62a733d))
+* **deps:** bump Microsoft.AspNetCore.Authentication.JwtBearer ([#289](https://github.com/Azaferany/dotnet-quickstart-template/issues/289)) ([33f44eb](https://github.com/Azaferany/dotnet-quickstart-template/commit/33f44eb7a7003fbbb8283a3910a4e740793a0b56))
+* **deps:** bump Microsoft.Extensions.Diagnostics.HealthChecks ([#260](https://github.com/Azaferany/dotnet-quickstart-template/issues/260)) ([1048a21](https://github.com/Azaferany/dotnet-quickstart-template/commit/1048a21efb99376fbcec5191fcc20e6f23482aa7))
+* **deps:** bump Microsoft.Extensions.Localization from 7.0.5 to 7.0.7 ([#257](https://github.com/Azaferany/dotnet-quickstart-template/issues/257)) ([baa8cfa](https://github.com/Azaferany/dotnet-quickstart-template/commit/baa8cfa3f145738228bb6a7db498a9ca3340eb59))
+* **deps:** bump Microsoft.Extensions.Localization from 7.0.7 to 7.0.8 ([#269](https://github.com/Azaferany/dotnet-quickstart-template/issues/269)) ([d38015c](https://github.com/Azaferany/dotnet-quickstart-template/commit/d38015c0276a8ec2988aeda0b76af9a1006abfa3))
+* **deps:** bump Microsoft.Extensions.Localization.Abstractions ([#261](https://github.com/Azaferany/dotnet-quickstart-template/issues/261)) ([a89b131](https://github.com/Azaferany/dotnet-quickstart-template/commit/a89b13107b422491ae1ddd522d77c98d4a624c83))
+* **deps:** bump Sentry.AspNetCore from 3.33.0 to 3.33.1 ([#255](https://github.com/Azaferany/dotnet-quickstart-template/issues/255)) ([393d3cc](https://github.com/Azaferany/dotnet-quickstart-template/commit/393d3cca21db8a9f587349ac750fa7c99980dc67))
+
 ## [1.0.8](https://github.com/Azaferany/dotnet-quickstart-template/compare/v1.0.7...v1.0.8) (2023-06-07)
 
 
