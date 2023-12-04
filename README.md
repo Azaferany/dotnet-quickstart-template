@@ -1,5 +1,5 @@
 # dotnet-quickstart-template 
-![line coverage](./docs/test_coverage/badges/badge_shieldsio_linecoverage_blue.svg)
+![line coverage](https://raw.githubusercontent.com/Azaferany/dotnet-quickstart-template/main/docs/test_coverage/badges/badge_shieldsio_linecoverage_blue.svg)
 
 template with all essential tools and configs for basic dotnet api
 
