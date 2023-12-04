@@ -3,20 +3,20 @@
 
 |||
 |:---|:---|
-| Generated on: | 12/2/2023 - 9:02:26 PM |
-| Coverage date: | 12/2/2023 - 9:02:24 PM |
+| Generated on: | 12/4/2023 - 4:50:40 PM |
+| Coverage date: | 12/4/2023 - 4:50:39 PM |
 | Parser: | Cobertura |
 | Assemblies: | 3 |
 | Classes: | 8 |
 | Files: | 8 |
-| **Line coverage:** | 85.7% (229 of 267) |
-| Covered lines: | 229 |
-| Uncovered lines: | 38 |
-| Coverable lines: | 267 |
-| Total lines: | 505 |
-| **Branch coverage:** | 72.5% (29 of 40) |
-| Covered branches: | 29 |
-| Total branches: | 40 |
+| **Line coverage:** | 86.1% (224 of 260) |
+| Covered lines: | 224 |
+| Uncovered lines: | 36 |
+| Coverable lines: | 260 |
+| Total lines: | 488 |
+| **Branch coverage:** | 75% (27 of 36) |
+| Covered branches: | 27 |
+| Total branches: | 36 |
 | **Method coverage:** | [Feature is only available for sponsors](https://reportgenerator.io/pro) |
 
 </details>
@@ -40,14 +40,14 @@
 |QuickstartTemplate.Infrastructure.InfrastructureSetup|100%||
 
 </details>
-<details><summary>QuickstartTemplate.WebApi - 89.6%</summary>
+<details><summary>QuickstartTemplate.WebApi - 90.3%</summary>
 
 |**Name**|**Line**|**Branch**|
 |:---|---:|---:|
-|**QuickstartTemplate.WebApi**|**89.6%**|**66.6%**|
+|**QuickstartTemplate.WebApi**|**90.3%**|**100%**|
 |Program|100%||
 |QuickstartTemplate.WebApi.Controllers.WeatherForecastController|0%||
-|QuickstartTemplate.WebApi.Startup|98.8%|66.6%|
+|QuickstartTemplate.WebApi.Startup|100%|100%|
 |QuickstartTemplate.WebApi.WeatherForecast|0%||
 
 </details>
