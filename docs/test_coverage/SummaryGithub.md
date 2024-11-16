@@ -3,8 +3,8 @@
 
 |||
 |:---|:---|
-| Generated on: | 11/9/2024 - 9:02:47 PM |
-| Coverage date: | 11/9/2024 - 9:02:45 PM |
+| Generated on: | 11/16/2024 - 9:02:03 PM |
+| Coverage date: | 11/16/2024 - 9:02:01 PM |
 | Parser: | Cobertura |
 | Assemblies: | 3 |
 | Classes: | 8 |
